@@ -23,8 +23,8 @@ export const About: React.FC = () => {
             <div className="brutalist-card brutalist-hover">
               <div className="aspect-square bg-yellow-300 relative">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-black text-8xl font-bold text-center">
-                    FH
+                  <div className="text-black text-6xl font-bold text-center px-4">
+                    Faiq Hilman
                   </div>
                 </div>
               </div>
