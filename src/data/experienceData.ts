@@ -14,12 +14,11 @@ export const experienceData: ExperienceItem[] = [
     location: "Kuala Lumpur, Malaysia",
     period: "Aug 2024 - Present",
     responsibilities: [
-      "Production Engineer on flagship enterprise GenAI platform (30,000+ employees). Rapidly onboarded to 8-microservice distributed architecture (React/.NET/Python/AWS) and delivered production features within 2 weeks despite minimal documentation.",
-      "Primary application engineer in phase 3. Completed full UI/UX revamp in 9 days (4 weeks ahead of schedule).",
-      "Architected reusable AI agent integration framework reducing deployment time from weeks to days, powering 4+ production agents and enabling rapid enterprise-scale GenAI expansion.",
-      "Delivered first production agent (Comparison Analyzer) end-to-end in 6 days for 30k+ users, implementing dual-document diff analysis across 8 microservices (FastAPI/React/.NET/Redis/Postgres/Bedrock) and resolving 5 critical infrastructure issues.",
-      "Built AWS S3 document management system with citation-enabled downloads and time-based expiry algorithms, integrating React.js frontend, .NET API gateway, and Python FastAPI microservices for 1,000+ internal client documents.",
-      "Resolved critical production failures within 24–48 hours, including restoring multi-agent LLM chat, fixing voice transcription pipeline (AWS Bedrock/Textract), and debugging cross-layer JWT/SQL issues across React–FastAPI–.NET stacks."
+      "Production Engineer on a flagship enterprise GenAI platform deployed at a top-5 Malaysian public company (30,000+ employees). Joined during mid-phase 2, rapidly onboarded to an 8-microservice distributed architecture (React/.NET/Python/AWS), and delivered production features within 2 weeks of joining despite minimal documentation. Currently the primary application engineer in phase 3 and completed a full UI/UX revamp in 9 days (4 weeks ahead of schedule).",
+      "Architected a reusable AI agent integration framework, reducing future deployment time from weeks to days and powering 4+ production agents, enabling rapid enterprise-scale GenAI expansion without re-engineering core systems.",
+      "Delivered the first production agent (Comparison Analyzer) end-to-end in 6 days for 30k+ users, implementing dual-document diff analysis across 8 microservices (FastAPI/React/.NET/Redis/Postgres/Bedrock) and resolving 5 critical infra issues that had stalled local development.",
+      "Built AWS S3 document management system with citation-enabled downloads and time-based expiry algorithms, integrating React.js frontend, .NET API gateway, and Python FastAPI microservices to enable secure access to 1,000+ internal client documents.",
+      "Resolved critical production failures within 24–48 hours, including restoring multi-agent LLM chat functionality, fixing voice transcription pipeline (AWS Bedrock/Textract), and debugging cross-layer JWT/SQL issues across React–FastAPI–.NET stacks, recognized as go-to engineer for firefighting and rapid delivery under pressure."
     ],
     technologies: ["React", "TypeScript", ".NET Core", "Python", "FastAPI", "AWS Bedrock", "AWS S3", "Redis", "PostgreSQL", "Docker", "Kubernetes", "Microservices", "AI Agents", "LLMs", "RAG"]
   },
