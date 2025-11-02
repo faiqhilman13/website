@@ -50,7 +50,7 @@ export const Hero: React.FC = () => {
         {/* Brutalist Navigation */}
         <nav className="brutalist-nav">
         <div className="flex justify-between items-center px-4 py-3">
-          <div className="text-2xl font-bold tracking-tighter uppercase">FAIQ</div>
+          <div className="text-2xl font-bold tracking-tighter uppercase">FAIQ HILMAN</div>
           <div className="flex space-x-4">
             <a href="#experience" className="hover:underline hover:text-yellow-300 text-xs uppercase">EXPERIENCE</a>
             <a href="#projects" className="hover:underline hover:text-yellow-300 text-xs uppercase">PROJECTS</a>
