@@ -62,7 +62,7 @@ export const Projects: React.FC = () => {
 
               <div>
                 <h4 className="text-sm font-bold uppercase mb-2">TECH STACK</h4>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1 mb-4">
                   {project.technologies.slice(0, 4).map((tech, tIndex) => (
                     <span
                       key={tIndex}
@@ -73,6 +73,19 @@ export const Projects: React.FC = () => {
                   ))}
                 </div>
               </div>
+
+              {project.github && (
+                <div>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-black text-yellow-300 px-4 py-2 text-xs font-bold uppercase border-2 border-black hover:bg-yellow-300 hover:text-black transition-colors"
+                  >
+                    VIEW ON GITHUB
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -134,6 +147,19 @@ export const Projects: React.FC = () => {
                   <p className="font-mono text-black">
                     {projectsData[selectedProject].outcome}
                   </p>
+                </div>
+              )}
+
+              {projectsData[selectedProject].github && (
+                <div>
+                  <a
+                    href={projectsData[selectedProject].github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-black text-yellow-300 px-4 py-2 text-sm font-bold uppercase border-2 border-black hover:bg-yellow-300 hover:text-black transition-colors"
+                  >
+                    VIEW ON GITHUB
+                  </a>
                 </div>
               )}
             </div>

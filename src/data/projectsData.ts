@@ -6,6 +6,7 @@ export interface ProjectItem {
   technologies: string[];
   keyFeatures?: string[];
   outcome?: string;
+  github?: string;
 }
 
 export const projectsData: ProjectItem[] = [
@@ -21,7 +22,8 @@ export const projectsData: ProjectItem[] = [
       "Automated clinical documentation and semantic search",
       "Processing of complex 15-page medical histories with 90%+ accuracy"
     ],
-    outcome: "Placed top 5 as the only solo participant in competitive government-backed AI hackathon (30+ teams, 2-4 developers each) hosted by AI Tinkerers, Malaysian Ministry of Health, and Malaysian National AI Office."
+    outcome: "Placed top 5 as the only solo participant in competitive government-backed AI hackathon (30+ teams, 2-4 developers each) hosted by AI Tinkerers, Malaysian Ministry of Health, and Malaysian National AI Office.",
+    github: "https://github.com/faiqhilman13/HospitalCanvas"
   },
   {
     title: "Mini IDP - AI Workflow Platform",
@@ -35,7 +37,8 @@ export const projectsData: ProjectItem[] = [
       "Enterprise-grade backend with Row-Level Security (RLS) and JSONB indexing",
       "Session-based authentication with real-time evaluation"
     ],
-    outcome: "Delivered production-level ML platform with optimized 6-table schema, Docker containers, CI/CD pipelines, and AWS orchestration enabling secure, scalable data operations and rapid iteration."
+    outcome: "Delivered production-level ML platform with optimized 6-table schema, Docker containers, CI/CD pipelines, and AWS orchestration enabling secure, scalable data operations and rapid iteration.",
+    github: "https://github.com/faiqhilman13/ML-RAG-platform-fork-"
   },
   {
     title: "Intelligent B2B Lead Generation Platform",
@@ -49,7 +52,8 @@ export const projectsData: ProjectItem[] = [
       "PDF proposal attachments",
       "Campaign tracking and analytics"
     ],
-    outcome: "Automated and personalized B2B lead generation, reducing manual effort and increasing lead flow."
+    outcome: "Automated and personalized B2B lead generation, reducing manual effort and increasing lead flow.",
+    github: "https://github.com/faiqhilman13/leadgen"
   },
   {
     title: "RAG-Powered Knowledge Chatbot",
