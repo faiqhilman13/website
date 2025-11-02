@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { SectionHeading } from './ui/SectionHeading';
-import { skillsData, SkillCategory } from '../data/skillsData';
+import { skillsData } from '../data/skillsData';
+import { IconWrapper } from './IconsSvg';
 
 export const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -10,74 +10,86 @@ export const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-4 md:px-6">
-        <SectionHeading>Technical Skills</SectionHeading>
-
-        <div className="mt-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Object.entries(skillsData).map(([categoryId, category]) => (
-              <div 
-                key={categoryId}
-                className={`bg-white rounded-xl shadow-sm transition-all duration-300 overflow-hidden ${
-                  activeCategory === categoryId ? 'ring-2 ring-blue-600' : 'hover:shadow-md'
-                }`}
-              >
-                <div 
-                  className={`p-6 cursor-pointer ${
-                    activeCategory === categoryId ? 'bg-blue-50' : 'bg-white'
-                  }`}
-                  onClick={() => toggleCategory(categoryId)}
-                >
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-xl font-bold text-slate-900">
-                      {category.title}
-                    </h3>
-                    <span className="text-2xl">{category.icon}</span>
-                  </div>
-                  <p className="text-slate-600 mt-2">{category.description}</p>
-                </div>
-
-                <div 
-                  className={`transition-all duration-300 ${
-                    activeCategory === categoryId ? 'max-h-[40rem] overflow-y-auto' : 'max-h-0 overflow-hidden'
-                  }`}
-                >
-                  <div className="p-6 pt-0 border-t border-slate-100">
-                    <ul className="space-y-3">
-                      {category.skills.map((skill, index) => (
-                        <li key={index} className="flex items-start">
-                          <div className="h-2 w-2 mt-2 bg-blue-600 rounded-full mr-3"></div>
-                          <span className="text-slate-700">{skill}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+    <section id="skills" className="py-20 bg-white">
+      <div className="brutalist-section">
+        {/* Brutalist Header */}
+        <div className="text-center mb-16">
+          <p className="text-sm italic text-gray-500 mb-2">(03 TECHNICAL SKILLS)</p>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tighter text-black mb-4">
+            TECHNICAL <span className="text-yellow-300">SKILLS</span>
+          </h2>
+          <div className="brutalist-accent-line mx-auto mb-8"></div>
+          <p className="text-xl font-mono text-black max-w-3xl mx-auto">
+            Comprehensive expertise spanning enterprise AI, fullstack development, and cybersecurity.
+          </p>
         </div>
 
-        <div className="mt-16">
-          <div className="bg-white rounded-xl shadow-md p-8">
-            <h3 className="text-xl font-bold text-slate-900 mb-6">Certifications</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="border border-slate-200 rounded-lg p-5 hover:shadow-md transition-shadow">
-                <h4 className="text-lg font-semibold text-slate-800">ISC2 - Certified in Cybersecurity</h4>
-                <p className="text-slate-600 mt-2">Industry-recognized certification validating essential cybersecurity knowledge and skills.</p>
+        {/* Skills Grid */}
+        <div className="brutalist-grid-2 gap-8 mb-16">
+          {Object.entries(skillsData).map(([categoryId, category]) => (
+            <div
+              key={categoryId}
+              className={`brutalist-block brutalist-hover ${
+                activeCategory === categoryId ? 'bg-black text-white' : ''
+              }`}
+            >
+              <div className="brutalist-subheading text-yellow-300 mb-2">
+                <IconWrapper emoji={category.icon} size={40} color="black" />
               </div>
-              
-              <div className="border border-slate-200 rounded-lg p-5 hover:shadow-md transition-shadow">
-                <h4 className="text-lg font-semibold text-slate-800">Microsoft Certified: Security, Compliance and Identity Fundamentals</h4>
-                <p className="text-slate-600 mt-2">Foundation in security, compliance, and identity across cloud-based and related Microsoft services.</p>
+              <h4 className="text-lg font-bold uppercase mb-3">{category.title}</h4>
+              <p className="font-mono text-sm mb-4">{category.description}</p>
+              <div className="brutalist-accent-line-sm mb-4"></div>
+
+              <div
+                className={`transition-all duration-300 ${
+                  activeCategory === categoryId ? 'max-h-96 overflow-y-auto' : 'max-h-24 overflow-hidden'
+                }`}
+              >
+                <ul className="space-y-2">
+                  {category.skills.slice(0, activeCategory === categoryId ? undefined : 4).map((skill, index) => (
+                    <li key={index} className="flex items-start">
+                      <div className="h-2 w-2 mt-1 bg-yellow-300 mr-3"></div>
+                      <span className="font-mono text-sm">{skill}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              
-              <div className="border border-slate-200 rounded-lg p-5 hover:shadow-md transition-shadow">
-                <h4 className="text-lg font-semibold text-slate-800">Microsoft Certified: Azure Fundamentals</h4>
-                <p className="text-slate-600 mt-2">Verification of knowledge of cloud concepts, Azure services, Azure workloads, security, privacy, and more.</p>
-              </div>
+
+              <button
+                onClick={() => toggleCategory(categoryId)}
+                className="mt-4 text-xs font-bold uppercase border-2 border-black px-3 py-1 hover:bg-yellow-300 hover:text-black transition-colors"
+              >
+                {activeCategory === categoryId ? 'SHOW LESS' : 'SHOW MORE'}
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {/* Certifications Section */}
+        <div className="brutalist-block brutalist-hover">
+          <h3 className="brutalist-subheading text-yellow-300">PROFESSIONAL CERTIFICATIONS</h3>
+          <div className="brutalist-accent-line-sm mb-6"></div>
+
+          <div className="brutalist-grid-3">
+            <div className="brutalist-block brutalist-hover-reverse">
+              <h4 className="text-lg font-bold uppercase mb-2">ISC2</h4>
+              <p className="font-mono text-sm mb-3">Certified in Cybersecurity</p>
+              <p className="font-mono text-xs">Industry-recognized cybersecurity knowledge and skills validation</p>
+              <div className="brutalist-accent-line-sm"></div>
+            </div>
+
+            <div className="brutalist-block brutalist-hover">
+              <h4 className="text-lg font-bold uppercase mb-2">MICROSOFT</h4>
+              <p className="font-mono text-sm mb-3">Security, Compliance & Identity</p>
+              <p className="font-mono text-xs">Cloud-based and Microsoft services security foundation</p>
+              <div className="brutalist-accent-line-sm"></div>
+            </div>
+
+            <div className="brutalist-block brutalist-hover-reverse">
+              <h4 className="text-lg font-bold uppercase mb-2">MICROSOFT</h4>
+              <p className="font-mono text-sm mb-3">Azure Fundamentals</p>
+              <p className="font-mono text-xs">Cloud concepts, services, workloads, security, and privacy</p>
+              <div className="brutalist-accent-line-sm"></div>
             </div>
           </div>
         </div>

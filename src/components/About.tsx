@@ -1,51 +1,145 @@
 import React from 'react';
-import { SectionHeading } from './ui/SectionHeading';
 
 export const About: React.FC = () => {
   return (
     <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <SectionHeading>About Me</SectionHeading>
-        
-        <div className="flex flex-col lg:flex-row gap-12 mt-12">
-          <div className="lg:w-1/3">
-            <div className="aspect-square bg-gradient-to-br from-blue-100 to-slate-200 rounded-xl flex items-center justify-center shadow-xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-slate-800/20"></div>
-              <span className="text-6xl">FH</span>
-            </div>
-          </div>
-          
-          <div className="lg:w-2/3">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">
-              A Technology Consultant with a unique cross-domain journey
-            </h3>
-            
-            <div className="space-y-4 text-lg text-slate-700">
-              <p>
-               I am a dynamic Technology Consultant with a unique cross-functional expertise spanning AI/ML Engineering, Software Development, Data Systems, and Cybersecurity, underpinned by a strong foundation in finance. At EY, I engineer and stabilize complex Generative AI platforms for national clients, navigating distributed microservices architectures and independently resolving critical infrastructure challenges (Docker, PostgreSQL, SAML/JWT authentication). I develop responsive frontend solutions (React, Streamlit) and implement advanced NLP capabilities for automated reporting, document summarization, intelligent querying, and knowledge base management.
-              </p>
-              
-              <p>
-               Beyond client work, I design and build end-to-end AI workflow platforms and data pipelines (FastAPI, Prefect, PostgreSQL, n8n), showcasing expertise in RAG architectures, LLM integration, and workflow automation. My experience also includes conducting OT cybersecurity audits for critical infrastructure and validating e-KYC compliance for financial institutions, ensuring robust, secure, and scalable solutions. My background in finance provides a distinct advantage in translating complex technical solutions into strategic business value.
-              </p>
-         
-              <p>
-                I hold an MSc in Data Science from City, University of London and a Bachelor of Commerce from the University of Melbourne, with industry certifications in cybersecurity from ISC2 and Microsoft.
-              </p>
-            </div>
-            
-            <div className="mt-8 flex flex-wrap gap-4">
-              <div className="px-4 py-2 bg-slate-100 rounded-md text-slate-800">
-                <span className="font-medium">Location:</span> Kuala Lumpur, Malaysia
-              </div>
-              <div className="px-4 py-2 bg-slate-100 rounded-md text-slate-800">
-                <span className="font-medium">Experience:</span> 2+ Years
-              </div>
-              <div className="px-4 py-2 bg-slate-100 rounded-md text-slate-800">
-                <span className="font-medium">Languages:</span> English (Fluent), Malay (Native)
+      <div className="brutalist-section">
+        {/* Brutalist Header */}
+        <div className="text-center mb-16">
+          <p className="text-sm italic text-gray-500 mb-2">(ABOUT ME)</p>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tighter text-black mb-4">
+            UNAPOLOGETIC <span className="text-yellow-300">ENGINEER</span>
+          </h2>
+          <div className="brutalist-accent-line mx-auto mb-8"></div>
+          <p className="text-xl font-mono text-black max-w-3xl mx-auto">
+            Technology Consultant with cross-domain expertise spanning AI, cybersecurity, and fullstack development.
+          </p>
+        </div>
+
+        {/* About Grid */}
+        <div className="brutalist-grid mb-16">
+          {/* Profile Card */}
+          <div className="md:col-span-4">
+            <div className="brutalist-card brutalist-hover">
+              <div className="aspect-square bg-yellow-300 relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-black text-8xl font-bold text-center">
+                    FH
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
+          {/* Key Stats */}
+          <div className="md:col-span-8">
+            <div className="brutalist-block brutalist-hover">
+              <h3 className="brutalist-subheading text-yellow-300">ENGINEERING PROFILE</h3>
+              <div className="brutalist-accent-line-sm mb-6"></div>
+
+              <div className="space-y-4 mb-6">
+                <p className="font-mono">
+                  Technology Consultant at EY building enterprise GenAI platforms for 30,000+ user organizations.
+                  Cross-functional expertise spanning AI/ML Engineering, Fullstack Development, and Cybersecurity.
+                  Finance background providing strategic business value translation for complex technical solutions.
+                </p>
+
+                <div className="brutalist-grid-3">
+                  <div className="text-center">
+                    <h4 className="text-2xl font-bold text-yellow-300">30K+</h4>
+                    <p className="font-mono text-xs">USERS SERVED</p>
+                  </div>
+                  <div className="text-center">
+                    <h4 className="text-2xl font-bold text-yellow-300">4+</h4>
+                    <p className="font-mono text-xs">PRODUCTION SYSTEMS</p>
+                  </div>
+                  <div className="text-center">
+                    <h4 className="text-2xl font-bold text-yellow-300">90%+</h4>
+                    <p className="font-mono text-xs">ACCURACY RATE</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <h4 className="text-lg font-bold uppercase mb-3">KEY EXPERTISE</h4>
+                <div className="space-y-2">
+                  <p className="font-mono text-sm">
+                    <span className="font-bold">AI/ML:</span> GenAI platforms, RAG systems, LLM integration
+                  </p>
+                  <p className="font-mono text-sm">
+                    <span className="font-bold">FULLSTACK:</span> React.js, .NET, Python, AWS infrastructure
+                  </p>
+                  <p className="font-mono text-sm">
+                    <span className="font-bold">SECURITY:</span> Enterprise security, compliance, OT cybersecurity
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Technical Journey */}
+        <div className="brutalist-grid-3 mb-8">
+          <div className="brutalist-block brutalist-hover-reverse">
+            <h4 className="text-lg font-bold uppercase mb-2">CURRENT ROLE</h4>
+            <p className="font-mono text-sm mb-3">EY Consulting</p>
+            <p className="font-mono text-sm mb-3">Technology Consultant</p>
+            <p className="font-mono text-sm mb-3">Aug 2024 - Present</p>
+            <div className="brutalist-accent-line-sm"></div>
+          </div>
+
+          <div className="brutalist-block brutalist-hover">
+            <h4 className="text-lg font-bold uppercase mb-2">EDUCATION</h4>
+            <p className="font-mono text-sm mb-3">MSc Data Science</p>
+            <p className="font-mono text-sm mb-3">City University London</p>
+            <p className="font-mono text-sm mb-3">BCom University of Melbourne</p>
+            <div className="brutalist-accent-line-sm"></div>
+          </div>
+
+          <div className="brutalist-block brutalist-hover-reverse">
+            <h4 className="text-lg font-bold uppercase mb-2">SKILLS EVOLUTION</h4>
+            <p className="font-mono text-sm mb-3">Finance → Data Science</p>
+            <p className="font-mono text-sm mb-3">→ Cybersecurity → AI/ML</p>
+            <p className="font-mono text-sm mb-3">→ Fullstack Development</p>
+            <div className="brutalist-accent-line-sm"></div>
+          </div>
+        </div>
+
+        {/* Core Capabilities */}
+        <div className="brutalist-grid-3 mb-16">
+          <div className="brutalist-block brutalist-hover">
+            <h3 className="brutalist-subheading text-yellow-300">ENTERPRISE AI</h3>
+            <div className="brutalist-accent-line-sm mb-4"></div>
+            <p className="font-mono text-sm mb-2">Production systems design</p>
+            <p className="font-mono text-sm mb-2">Microservices architecture</p>
+            <p className="font-mono text-sm mb-2">30K+ user scaling</p>
+            <div className="brutalist-accent-line-sm"></div>
+          </div>
+
+          <div className="brutalist-block brutalist-hover-reverse">
+            <h3 className="brutalist-subheading text-yellow-300">FULLSTACK DEV</h3>
+            <div className="brutalist-accent-line-sm mb-4"></div>
+            <p className="font-mono text-sm mb-2">React.js frontends</p>
+            <p className="font-mono text-sm mb-2">.NET backends</p>
+            <p className="font-mono text-sm mb-2">Python data systems</p>
+            <div className="brutalist-accent-line-sm"></div>
+          </div>
+
+          <div className="brutalist-block brutalist-hover">
+            <h3 className="brutalist-subheading text-yellow-300">SECURITY</h3>
+            <div className="brutalist-accent-line-sm mb-4"></div>
+            <p className="font-mono text-sm mb-2">Enterprise security</p>
+            <p className="font-mono text-sm mb-2">Compliance frameworks</p>
+            <p className="font-mono text-sm mb-2">OT cybersecurity</p>
+            <div className="brutalist-accent-line-sm"></div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center">
+          <a href="#contact" className="brutalist-button">
+            DISCUSS COLLABORATION
+          </a>
         </div>
       </div>
     </section>

@@ -6,111 +6,108 @@ export interface SkillCategory {
 }
 
 export const skillsData: Record<string, SkillCategory> = {
-  programming: {
-    title: "Programming & Data Science",
-    icon: "💻",
-    description: "Languages, data science, and analytics tools",
+  enterpriseai: {
+    title: "Enterprise AI & Distributed Systems",
+    icon: "🚀",
+    description: "Multi-agent architectures, microservices, and production systems",
     skills: [
-      "Python",
-      "R",
-      "Java",
-      "JavaScript",
-      "SQL",
-      "SPARQL",
-      "Pandas",
-      "NumPy",
-      "Matplotlib",
-      "Seaborn",
-      "RDFlib",
-      "Regex",
-      "Jinja2"
+      "Multi-Agent AI Architecture",
+      "AWS Bedrock Integration",
+      "Microservices Orchestration",
+      "Service Mesh Communication",
+      "Production System Integration",
+      "Cross-Service Debugging",
+      "Vector Database Operations (pgvector)",
+      "Knowledge Fusion Pipelines"
     ]
   },
   machinelearning: {
     title: "Machine Learning, AI & Automation",
     icon: "🧠",
-    description: "ML, AI, LLMs, and workflow automation",
+    description: "LLMs, RAG, neural networks, and agentic workflows",
     skills: [
       "LLM Prompt Engineering",
+      "RAG Pipelines (LangChain, FAISS, Ollama)",
+      "Document Processing & Embeddings",
       "Neural Networks",
       "Random Forest",
       "SVM",
-      "Bayesian Optimization",
-      "Feature Selection",
-      "Supervised Learning",
-      "Unsupervised Learning",
-      "PCA",
-      "RAG Pipelines (LangChain, FAISS, Ollama)",
-      "Agentic Workflows (n8n)",
-      "Conversational UIs",
-      "Document Parsing & Comparison",
-      "Lead Classification Automation"
+      "Feature Engineering",
+      "Agentic Workflows",
+      "Conversational AI",
+      "Natural Language Processing"
+    ]
+  },
+  fullstack: {
+    title: "Fullstack Development",
+    icon: "💻",
+    description: "Frontend, backend, and full-stack frameworks",
+    skills: [
+      "React.js",
+      "TypeScript",
+      "JavaScript",
+      "Python",
+      "C#/.NET Core",
+      "HTML/CSS",
+      "FastAPI",
+      "SQLAlchemy",
+      "Material-UI",
+      "TailwindCSS",
+      "Vite",
+      "Real-time State Management",
+      "Responsive UI Design",
+      "API Integration Patterns"
+    ]
+  },
+  cloud: {
+    title: "Cloud & Infrastructure",
+    icon: "☁️",
+    description: "AWS, Kubernetes, Docker, and deployment pipelines",
+    skills: [
+      "AWS (Bedrock, S3, Secrets Manager, ECR, Textract)",
+      "Kubernetes",
+      "Docker",
+      "CI/CD Pipelines",
+      "PostgreSQL",
+      "SQLite",
+      "Database Migration",
+      "Environment Management",
+      "Container Orchestration",
+      "Production Deployment"
+    ]
+  },
+  security: {
+    title: "Enterprise Security & Integration",
+    icon: "🔒",
+    description: "Authentication, compliance, and security frameworks",
+    skills: [
+      "SAML 2.0/ADFS Integration",
+      "JWT Authentication",
+      "Role-Based Access Control (RBAC)",
+      "Enterprise Authentication Flows",
+      "Secure API Design",
+      "OT Cybersecurity",
+      "Network Security",
+      "Risk Assessment",
+      "Compliance Frameworks"
     ]
   },
   dataengineering: {
-    title: "Software & Data Engineering",
-    icon: "🔧",
-    description: "Backend, data infrastructure, and automation",
+    title: "Data Engineering & Analytics",
+    icon: "📊",
+    description: "ETL pipelines, data processing, and analytics",
     skills: [
-      "FastAPI",
-      "SQLAlchemy",
-      "PostgreSQL",
-      "SQLite",
-      "ETL Scheduling",
+      "ETL Pipelines",
       "Data Validation",
       "Webhooks",
-      "REST APIs",
-      "CLI Tools",
-      "Secure Credential Vaulting",
-      "Prefect",
-      "Celery",
-      "Google Cloud Platform (GCS, Dataproc)",
+      "SQL/SPARQL",
+      "Pandas",
+      "NumPy",
       "PySpark",
-      "Hadoop",
-      "TFRecord Optimization",
       "Distributed Computing",
-      "Parallel Data Processing"
-    ]
-  },
-  uiux: {
-    title: "UI/UX & Visualization",
-    icon: "🎨",
-    description: "Frontend, dashboards, and data visualization",
-    skills: [
-      "Streamlit (advanced)",
-      "React (advanced)",
-      "TailwindCSS (advanced)",
-      "Custom JavaScript Enhancements",
-      "UI State Management",
-      "Dashboard Design",
-      "Tableau",
-      "Observable",
-      "Folium",
-      "GeoPandas",
-      "RDF",
-      "Knowledge Graphs",
-      "Data Modeling"
-    ]
-  },
-  cybersecurity: {
-    title: "Cybersecurity, DevOps & Compliance",
-    icon: "🔒",
-    description: "Security, compliance, and deployment",
-    skills: [
-      "IEC 62443",
-      "OT Cybersecurity",
-      "e-KYC Vendor Evaluation",
-      "Network Security",
-      "Secure System Configuration",
-      "Risk Assessment",
-      "Docker",
-      "WSL2",
-      "Git",
-      "Environment Management (.env, appsettings.local.json)",
-      "Secure API Deployment",
-      "Azure DevOps",
-      "AWS (S3, Secrets Manager, ECR)",
-      "Zscaler Certificates"
+      "Database Optimization",
+      "Analytics Dashboard Design",
+      "Business Intelligence Tools"
     ]
   }
 };

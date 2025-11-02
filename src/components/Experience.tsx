@@ -1,68 +1,73 @@
-import React from 'react';
-import { SectionHeading } from './ui/SectionHeading';
+import React, { useState } from 'react';
 import { experienceData } from '../data/experienceData';
 
 export const Experience: React.FC = () => {
+  const [expandedIndex, setExpandedIndex] = useState<number>(0);
+
+  const toggleExpand = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? -1 : index);
+  };
+
   return (
-    <section id="experience" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-4 md:px-6">
-        <SectionHeading>Work Experience</SectionHeading>
-        
-        <div className="mt-16 relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-slate-200"></div>
-          
-          {/* Experience items */}
-          <div className="space-y-16">
-            {experienceData.map((item, index) => (
-              <div 
-                key={index}
-                className={`relative flex flex-col md:flex-row ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-blue-600 border-4 border-white"></div>
-                
-                {/* Content */}
-                <div className="w-full md:w-1/2 md:px-10 ml-8 md:ml-0">
-                  <div className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                    <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
-                      <h3 className="text-xl font-bold text-slate-900">{item.role}</h3>
-                      <span className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full mt-2 md:mt-0">
-                        {item.period}
-                      </span>
-                    </div>
-                    
-                    <div className="flex items-center mb-4">
-                      <span className="text-lg font-medium text-slate-700">{item.company}</span>
-                      <span className="mx-2 text-slate-400">•</span>
-                      <span className="text-slate-500">{item.location}</span>
-                    </div>
-                    
-                    <ul className="space-y-2 text-slate-700 list-disc list-inside">
-                      {item.responsibilities.map((responsibility, rIndex) => (
-                        <li key={rIndex}>{responsibility}</li>
-                      ))}
-                    </ul>
-                    
-                    {item.technologies && (
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {item.technologies.map((tech, tIndex) => (
-                          <span 
+    <section id="experience" className="py-20 bg-white">
+      <div className="brutalist-section">
+        {/* Brutalist Header */}
+        <div className="text-center mb-16">
+          <p className="text-sm italic text-gray-500 mb-2">(01 EXPERIENCE)</p>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tighter text-black mb-4">
+            PROFESSIONAL <span className="text-yellow-300">EXPERIENCE</span>
+          </h2>
+          <div className="brutalist-accent-line mx-auto mb-8"></div>
+          <p className="text-xl font-mono text-black max-w-3xl mx-auto">
+            Building production AI systems and delivering enterprise solutions that make measurable impact.
+          </p>
+        </div>
+
+        {/* Experience Cards - Expandable */}
+        <div className="space-y-6 mb-16">
+          {experienceData.map((exp, index) => (
+            <div key={index} className="brutalist-block brutalist-hover cursor-pointer" onClick={() => toggleExpand(index)}>
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <h3 className="brutalist-subheading text-yellow-300">{exp.company.toUpperCase()}</h3>
+                  <p className="text-lg font-mono mb-1">{exp.role.toUpperCase()}</p>
+                  <p className="text-sm font-mono mb-1">{exp.period} • {exp.location}</p>
+                </div>
+                <div className="text-3xl ml-4">
+                  {expandedIndex === index ? '−' : '+'}
+                </div>
+              </div>
+
+              {expandedIndex === index && (
+                <div className="mt-6">
+                  <div className="brutalist-accent-line-sm mb-6"></div>
+                  <div className="space-y-3 mb-6">
+                    {exp.responsibilities.map((resp, rIndex) => (
+                      <p key={rIndex} className="font-mono text-sm leading-relaxed">
+                        • {resp}
+                      </p>
+                    ))}
+                  </div>
+
+                  {exp.technologies && exp.technologies.length > 0 && (
+                    <div>
+                      <h4 className="text-sm font-bold uppercase mb-3">TECHNOLOGIES</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {exp.technologies.map((tech, tIndex) => (
+                          <span
                             key={tIndex}
-                            className="text-xs font-medium bg-slate-100 text-slate-700 px-2 py-1 rounded"
+                            className="inline-block bg-yellow-300 text-black px-3 py-1 text-xs font-bold uppercase border-2 border-black"
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
-          </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

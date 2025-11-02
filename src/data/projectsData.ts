@@ -10,18 +10,32 @@ export interface ProjectItem {
 
 export const projectsData: ProjectItem[] = [
   {
+    title: "Health Canvas - Hackathon Project",
+    icon: "🏥",
+    shortDescription: "AI-powered clinical canvas platform with RAG for medical document processing and analysis.",
+    fullDescription: "Single-handedly designed and developed an AI-powered clinical canvas platform using modern tech stack (React, TypeScript, FastAPI, OpenAI GPT-4). Engineered scalable healthcare application with real-time patient data visualization, automated clinical documentation, and semantic search capabilities. Processing complex 15-page medical histories with 90%+ accuracy using retrieval-augmented generation (RAG) with FAISS vector search.",
+    technologies: ["React", "TypeScript", "FastAPI", "OpenAI GPT-4", "FAISS", "RAG", "Healthcare"],
+    keyFeatures: [
+      "AI-powered clinical canvas with real-time patient data visualization",
+      "Retrieval-augmented generation (RAG) with FAISS vector search",
+      "Automated clinical documentation and semantic search",
+      "Processing of complex 15-page medical histories with 90%+ accuracy"
+    ],
+    outcome: "Placed top 5 as the only solo participant in competitive government-backed AI hackathon (30+ teams, 2-4 developers each) hosted by AI Tinkerers, Malaysian Ministry of Health, and Malaysian National AI Office."
+  },
+  {
     title: "Mini IDP - AI Workflow Platform",
     icon: "🤖",
-    shortDescription: "Full-stack AI workflow platform for self-serve document processing with RAG chatbots and summarizers.",
-    fullDescription: "Engineered a production-ready, full-stack AI Workflow Platform (Mini IDP) enabling enterprise users to upload CSVs, train machine learning models, and gain actionable insights in less than 30 seconds, alongside automated document processing via RAG chatbots and summarizers. Implemented a modular microservices-inspired architecture with a FastAPI backend, React frontend, and Prefect for robust workflow orchestration. Established scalable PostgreSQL data infrastructure with comprehensive validation and error handling.",
-    technologies: ["FastAPI", "React", "Prefect", "PostgreSQL", "NLP", "LLM", "RAG", "Microservices", "Docker"],
+    shortDescription: "Unified AI/ML workflow platform with RAG pipelines, model training, and document intelligence.",
+    fullDescription: "Built a unified AI/ML workflow and retrieval-augmented generation (RAG) platform combining model training, document intelligence, and conversational analytics. Achieved 89.65% R² performance with sub-second model training across 10+ algorithms (Random Forest, SVM, Logistic Regression). Developed multi-stage RAG pipeline improving document recall by 60% with semantic clustering, cross-encoder reranking, and LangChain orchestration with FAISS vector search. Integrated llama3:8b LLM with session-based authentication and sliding-window chunking.",
+    technologies: ["FastAPI", "React", "Supabase", "PostgreSQL", "LangChain", "FAISS", "llama3", "Docker", "AWS"],
     keyFeatures: [
-      "Self-serve AI for rapid ML model training from CSV uploads, intelligent document analysis, and summarization",
-      "Modular microservices-inspired architecture ensuring scalability and reliability",
-      "High-performance RAG, NLP, & ML pipelines with end-to-end LLM integration",
-      "Robust workflow orchestration with Prefect and scalable PostgreSQL infrastructure"
+      "Sub-second model training on 10+ ML algorithms with 89.65% R² accuracy",
+      "Multi-stage RAG pipeline with 60% improved document recall",
+      "Enterprise-grade backend with Row-Level Security (RLS) and JSONB indexing",
+      "Session-based authentication with real-time evaluation"
     ],
-    outcome: "Delivered end-to-end document automation and intelligent analytics, drastically reducing model development time from weeks to minutes, with ML models achieving 89.65% R² accuracy and sub-second training on 10K+ row datasets, and zero critical production bugs."
+    outcome: "Delivered production-level ML platform with optimized 6-table schema, Docker containers, CI/CD pipelines, and AWS orchestration enabling secure, scalable data operations and rapid iteration."
   },
   {
     title: "Intelligent B2B Lead Generation Platform",

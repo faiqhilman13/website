@@ -14,13 +14,14 @@ export const experienceData: ExperienceItem[] = [
     location: "Kuala Lumpur, Malaysia",
     period: "Aug 2024 - Present",
     responsibilities: [
-      "Delivered enterprise GenAI platform features serving 1000+ users within 2 weeks, implementing secure S3 file handling and mobile-responsive UI for Malaysian utilities provider (20,000+ employees).",
-      "Implemented advanced frontend features including secure multi-file uploads for RAG-enabled LLMs and interactive document viewers, enhancing data accessibility and user interaction with AI-generated insights.",
-      "Led frontend architecture for internal GenAI platform, accelerating feature delivery aligned with strategic objectives.",
-      "Conducted OT cybersecurity audits for critical infrastructure, developing IEC 62443 compliance frameworks and strengthening threat detection capabilities.",
-      "Conducted cybersecurity assessments for financial institutions, ensuring e-KYC vendor compliance with BNM Policy (April 2024) for identity verification and fraud prevention."
+      "Production Engineer on flagship enterprise GenAI platform (30,000+ employees). Rapidly onboarded to 8-microservice distributed architecture (React/.NET/Python/AWS) and delivered production features within 2 weeks despite minimal documentation.",
+      "Primary application engineer in phase 3. Completed full UI/UX revamp in 9 days (4 weeks ahead of schedule).",
+      "Architected reusable AI agent integration framework reducing deployment time from weeks to days, powering 4+ production agents and enabling rapid enterprise-scale GenAI expansion.",
+      "Delivered first production agent (Comparison Analyzer) end-to-end in 6 days for 30k+ users, implementing dual-document diff analysis across 8 microservices (FastAPI/React/.NET/Redis/Postgres/Bedrock) and resolving 5 critical infrastructure issues.",
+      "Built AWS S3 document management system with citation-enabled downloads and time-based expiry algorithms, integrating React.js frontend, .NET API gateway, and Python FastAPI microservices for 1,000+ internal client documents.",
+      "Resolved critical production failures within 24–48 hours, including restoring multi-agent LLM chat, fixing voice transcription pipeline (AWS Bedrock/Textract), and debugging cross-layer JWT/SQL issues across React–FastAPI–.NET stacks."
     ],
-    technologies: ["React", "Streamlit", "TypeScript", ".NET", "Python", "PostgreSQL", "Docker", "SAML", "ADFS", "Figma", "Storybook", "Generative AI", "LLMs (Large Language Models)", "SQL", "Microservices Architecture", "Cybersecurity", "OT Security", "IEC 62443", "e-KYC", "Compliance"]
+    technologies: ["React", "TypeScript", ".NET Core", "Python", "FastAPI", "AWS Bedrock", "AWS S3", "Redis", "PostgreSQL", "Docker", "Kubernetes", "Microservices", "AI Agents", "LLMs", "RAG"]
   },
   {
     company: "Cherengin Hills",
