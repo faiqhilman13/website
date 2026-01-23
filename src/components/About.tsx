@@ -66,7 +66,7 @@ export const About: React.FC = () => {
               </span>
 
               <div className="space-y-6">
-                {expertise.map((item, index) => (
+                {expertise.map((item) => (
                   <div
                     key={item.label}
                     className="group relative pl-6"
@@ -93,7 +93,7 @@ export const About: React.FC = () => {
                   MODELS
                 </span>
                 <div className="flex flex-wrap gap-3">
-                  {['Claude', 'GPT-4', 'Llama', 'Mistral', 'Qwen'].map((model) => (
+                  {['Opus/Sonnet/Haiku', 'GPT', 'Gemini', 'Mistral', 'GLM'].map((model) => (
                     <span
                       key={model}
                       className="px-3 py-1 font-mono text-xs text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:border-[var(--accent-crimson)] hover:text-[var(--accent-crimson)] transition-colors cursor-default"

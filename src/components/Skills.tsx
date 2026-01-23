@@ -51,7 +51,7 @@ export const Skills: React.FC = () => {
     },
   ];
 
-  const models = ['Claude 4.0', 'GPT-4', 'Llama', 'Mistral', 'Qwen'];
+  const models = ['Opus/Sonnet/Haiku', 'GPT', 'Gemini', 'Mistral', 'GLM'];
 
   // Typing effect for command
   useEffect(() => {
