@@ -1,171 +1,183 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { projectsData } from '../data/projectsData';
-import { IconWrapper } from './IconsSvg';
 
 export const Projects: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
-
-  const openProject = (index: number) => {
-    setSelectedProject(index);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeProject = () => {
-    setSelectedProject(null);
-    document.body.style.overflow = 'auto';
-  };
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-white">
-      <div className="brutalist-section">
-        {/* Brutalist Header */}
-        <div className="text-center mb-16">
-          <p className="text-sm italic text-gray-500 mb-2">(02 PROJECTS)</p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tighter text-black mb-4">
-            FEATURED <span className="text-yellow-300">PROJECTS</span>
-          </h2>
-          <div className="brutalist-accent-line mx-auto mb-8"></div>
-          <p className="text-xl font-mono text-black max-w-3xl mx-auto">
-            Showcasing production AI platforms and innovative solutions that deliver measurable business value.
-          </p>
-        </div>
-
-        {/* Projects Grid - 3 Column */}
-        <div className="brutalist-grid-3 gap-8 mb-16">
-          {projectsData.slice(0, 3).map((project, index) => (
-            <div key={index} className="brutalist-block brutalist-hover">
-              <div className="mb-4">
-                <IconWrapper emoji={project.icon} size={48} color="black" />
-              </div>
-              <h3 className="brutalist-subheading text-yellow-300">{project.title.toUpperCase()}</h3>
-              <p className="font-mono text-sm mb-4">{project.shortDescription}</p>
-              <div className="brutalist-accent-line-sm mb-4"></div>
-
-              <div className="mb-6">
-                <h4 className="text-sm font-bold uppercase mb-3">KEY FEATURES</h4>
-                <ul className="space-y-2">
-                  {project.keyFeatures?.slice(0, 3).map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-start">
-                      <div className="h-2 w-2 mt-1 bg-yellow-300 mr-3"></div>
-                      <span className="font-mono text-xs">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {project.outcome && (
-                <div className="mb-6">
-                  <h4 className="text-sm font-bold uppercase mb-2">OUTCOME</h4>
-                  <p className="font-mono text-xs leading-relaxed">{project.outcome}</p>
-                </div>
-              )}
-
-              <div>
-                <h4 className="text-sm font-bold uppercase mb-2">TECH STACK</h4>
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {project.technologies.slice(0, 4).map((tech, tIndex) => (
-                    <span
-                      key={tIndex}
-                      className="inline-block bg-yellow-300 text-black px-2 py-1 text-xs font-bold uppercase border border-black"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {project.github && (
-                <div>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-black text-yellow-300 px-4 py-2 text-xs font-bold uppercase border-2 border-black hover:bg-yellow-300 hover:text-black transition-colors"
-                  >
-                    VIEW ON GITHUB
-                  </a>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Brutalist Project Modal */}
-      {selectedProject !== null && (
-        <div className="fixed inset-0 bg-black z-50 flex items-center justify-center p-4">
-          <div
-            className="bg-white border-4 border-black p-8 w-full max-w-4xl max-h-[90vh] overflow-y-auto brutalist-hover"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex justify-between items-start mb-6">
-              <h3 className="text-2xl font-bold uppercase text-black">
-                {projectsData[selectedProject].title}
-              </h3>
-              <button
-                onClick={closeProject}
-                className="bg-yellow-300 text-black px-4 py-2 font-bold hover:bg-yellow-400 transition-colors border-2 border-black"
-                aria-label="Close"
-              >
-                X
-              </button>
-            </div>
-
-            <div className="space-y-6">
-              <p className="font-mono text-black">
-                {projectsData[selectedProject].fullDescription}
-              </p>
-
-              {projectsData[selectedProject].keyFeatures && (
-                <div>
-                  <h4 className="text-lg font-bold uppercase mb-3 text-black">KEY FEATURES</h4>
-                  <ul className="list-disc list-inside space-y-2 font-mono text-black">
-                    {projectsData[selectedProject].keyFeatures.map((feature, fIndex) => (
-                      <li key={fIndex}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <div>
-                <h4 className="text-lg font-bold uppercase mb-3 text-black">TECHNOLOGIES USED</h4>
-                <div className="flex flex-wrap gap-2">
-                  {projectsData[selectedProject].technologies.map((tech, tIndex) => (
-                    <span
-                      key={tIndex}
-                      className="inline-block bg-yellow-300 text-black px-3 py-1 text-xs font-bold uppercase border-2 border-black"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {projectsData[selectedProject].outcome && (
-                <div>
-                  <h4 className="text-lg font-bold uppercase mb-3 text-black">OUTCOME</h4>
-                  <p className="font-mono text-black">
-                    {projectsData[selectedProject].outcome}
-                  </p>
-                </div>
-              )}
-
-              {projectsData[selectedProject].github && (
-                <div>
-                  <a
-                    href={projectsData[selectedProject].github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-black text-yellow-300 px-4 py-2 text-sm font-bold uppercase border-2 border-black hover:bg-yellow-300 hover:text-black transition-colors"
-                  >
-                    VIEW ON GITHUB
-                  </a>
-                </div>
-              )}
-            </div>
+    <section id="projects" className="relative z-10 py-32">
+      <div className="container">
+        {/* Editorial header */}
+        <div className="grid lg:grid-cols-12 gap-8 mb-20">
+          <div className="lg:col-span-8">
+            <span className="font-mono text-xs tracking-[0.3em] text-[var(--accent-crimson)] block mb-4">
+              作品集 // PORTFOLIO
+            </span>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight leading-none">
+              Forged in
+              <br />
+              <span className="text-[var(--accent-crimson)] italic font-serif">Production</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-4 flex items-end">
+            <p className="text-[var(--text-secondary)] font-serif italic text-lg border-l-2 border-[var(--accent-crimson)] pl-6">
+              Systems that ship, not prototypes that sit.
+            </p>
           </div>
         </div>
-      )}
+
+        {/* Projects - Magazine spread layout */}
+        <div className="space-y-32">
+          {projectsData.map((project, index) => (
+            <article
+              key={project.title}
+              className="group relative"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              {/* Large index number - background */}
+              <div
+                className="absolute -left-4 lg:left-0 top-0 font-bold text-[12rem] lg:text-[20rem] leading-none text-transparent pointer-events-none select-none transition-all duration-700"
+                style={{
+                  WebkitTextStroke: hoveredIndex === index ? '2px var(--accent-crimson)' : '1px var(--border-subtle)',
+                }}
+              >
+                {String(index + 1).padStart(2, '0')}
+              </div>
+
+              {/* Content layout - alternating sides */}
+              <div className={`grid lg:grid-cols-12 gap-8 relative z-10 ${
+                index % 2 === 0 ? '' : 'lg:text-right'
+              }`}>
+                {/* Main content */}
+                <div className={`lg:col-span-7 ${index % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-6'}`}>
+                  {/* Tag - diagonal slash */}
+                  <div className="inline-flex items-center gap-3 mb-6">
+                    <div className="w-8 h-px bg-[var(--accent-crimson)] transform -rotate-45" />
+                    <span className="font-mono text-xs tracking-[0.2em] text-[var(--accent-crimson)] uppercase">
+                      {project.tag}
+                    </span>
+                  </div>
+
+                  {/* Title - large and bold */}
+                  <h3 className="text-3xl md:text-5xl font-bold mb-6 group-hover:text-[var(--accent-crimson)] transition-colors duration-500">
+                    {project.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-8 max-w-xl">
+                    {project.description}
+                  </p>
+
+                  {/* Highlights - with slash markers */}
+                  <div className="space-y-3 mb-8">
+                    {project.highlights.map((highlight, i) => (
+                      <div
+                        key={i}
+                        className={`flex items-start gap-4 ${index % 2 === 0 ? '' : 'lg:flex-row-reverse lg:text-left'}`}
+                      >
+                        <span className="text-[var(--accent-crimson)] font-mono text-xs mt-1">//</span>
+                        <p className="text-[var(--text-secondary)] text-sm">{highlight}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Tech stack - inline flow */}
+                  <div className={`flex flex-wrap gap-x-4 gap-y-2 ${index % 2 === 0 ? '' : 'lg:justify-end'}`}>
+                    {project.technologies.map((tech, i) => (
+                      <span key={tech} className="text-[var(--text-muted)] font-mono text-xs">
+                        {tech}
+                        {i < project.technologies.length - 1 && (
+                          <span className="ml-4 text-[var(--accent-crimson)]">/</span>
+                        )}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Link */}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-3 mt-8 group/link"
+                    >
+                      <span className="font-mono text-sm text-[var(--text-primary)] group-hover/link:text-[var(--accent-crimson)] transition-colors">
+                        View {project.linkLabel}
+                      </span>
+                      <div className="w-8 h-8 border border-[var(--border-subtle)] flex items-center justify-center group-hover/link:border-[var(--accent-crimson)] group-hover/link:bg-[var(--accent-crimson)] transition-all">
+                        <span className="material-icons text-sm group-hover/link:text-white transition-colors">
+                          arrow_forward
+                        </span>
+                      </div>
+                    </a>
+                  )}
+                </div>
+
+                {/* Side decoration - hexagon pattern */}
+                <div className={`hidden lg:flex lg:col-span-4 items-center justify-center ${
+                  index % 2 === 0 ? 'lg:col-start-9' : 'lg:col-start-1 lg:row-start-1'
+                }`}>
+                  <div className="relative w-48 h-48">
+                    {/* Hexagonal frame */}
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <polygon
+                        points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"
+                        fill="none"
+                        stroke={hoveredIndex === index ? 'var(--accent-crimson)' : 'var(--border-subtle)'}
+                        strokeWidth="0.5"
+                        className="transition-all duration-500"
+                      />
+                      <polygon
+                        points="50,15 85,32.5 85,67.5 50,85 15,67.5 15,32.5"
+                        fill="none"
+                        stroke={hoveredIndex === index ? 'var(--accent-crimson)' : 'var(--border-subtle)'}
+                        strokeWidth="0.3"
+                        opacity="0.5"
+                        className="transition-all duration-500"
+                      />
+                    </svg>
+
+                    {/* Center content */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className={`font-mono text-4xl font-bold transition-colors duration-500 ${
+                        hoveredIndex === index ? 'text-[var(--accent-crimson)]' : 'text-[var(--text-muted)]'
+                      }`}>
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Horizontal rule - katana slash */}
+              <div className="mt-16 relative">
+                <div className="h-px bg-gradient-to-r from-[var(--accent-crimson)] via-[var(--border-subtle)] to-transparent" />
+                <div
+                  className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-[var(--accent-crimson)]"
+                  style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
+                />
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* GitHub CTA */}
+        <div className="mt-20 flex justify-center">
+          <a
+            href="https://github.com/faiqhilman13"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-6"
+          >
+            <span className="w-16 h-px bg-[var(--border-subtle)] group-hover:bg-[var(--accent-crimson)] group-hover:w-24 transition-all" />
+            <span className="font-mono text-sm tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--accent-crimson)] transition-colors">
+              EXPLORE ALL REPOSITORIES
+            </span>
+            <span className="w-16 h-px bg-[var(--border-subtle)] group-hover:bg-[var(--accent-crimson)] group-hover:w-24 transition-all" />
+          </a>
+        </div>
+      </div>
     </section>
   );
 };

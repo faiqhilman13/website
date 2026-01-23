@@ -1,96 +1,241 @@
-import React, { useState } from 'react';
-import { skillsData } from '../data/skillsData';
-import { IconWrapper } from './IconsSvg';
+import { useState, useEffect } from 'react';
 
 export const Skills: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState(0);
+  const [typedText, setTypedText] = useState('');
 
-  const toggleCategory = (categoryId: string) => {
-    setActiveCategory(activeCategory === categoryId ? null : categoryId);
-  };
+  const skillCategories = [
+    {
+      command: 'ai --systems',
+      title: 'AI & LLM Systems',
+      skills: [
+        { name: 'Multi-agent orchestration', level: 95 },
+        { name: 'RAG pipelines (pgvector + BM25)', level: 90 },
+        { name: 'Cross-encoder reranking', level: 85 },
+        { name: 'Prompt engineering', level: 95 },
+        { name: 'Guardrail implementation', level: 88 },
+        { name: 'Semantic chunking', level: 85 },
+      ],
+    },
+    {
+      command: 'stack --frontend',
+      title: 'Frontend & Full-Stack',
+      skills: [
+        { name: 'React / React Native', level: 92 },
+        { name: 'TypeScript', level: 90 },
+        { name: 'Zustand / TanStack Query', level: 85 },
+        { name: 'SSE streaming', level: 88 },
+        { name: 'Real-time interfaces', level: 85 },
+      ],
+    },
+    {
+      command: 'stack --backend',
+      title: 'Backend & Data',
+      skills: [
+        { name: 'FastAPI / Python', level: 92 },
+        { name: '.NET / C#', level: 85 },
+        { name: 'PostgreSQL / pgvector', level: 88 },
+        { name: 'Redis', level: 82 },
+        { name: 'ETL pipelines', level: 85 },
+      ],
+    },
+    {
+      command: 'infra --cloud',
+      title: 'Infrastructure',
+      skills: [
+        { name: 'AWS Bedrock / S3 / EC2', level: 88 },
+        { name: 'CodePipeline CI/CD', level: 85 },
+        { name: 'Docker / Compose', level: 90 },
+        { name: 'VPS deployment', level: 85 },
+      ],
+    },
+  ];
+
+  const models = ['Claude 4.0', 'GPT-4', 'Llama', 'Mistral', 'Qwen'];
+
+  // Typing effect for command
+  useEffect(() => {
+    const command = skillCategories[activeCategory].command;
+    setTypedText('');
+
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i <= command.length) {
+        setTypedText(command.slice(0, i));
+        i++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [activeCategory]);
 
   return (
-    <section id="skills" className="py-20 bg-white">
-      <div className="brutalist-section">
-        {/* Brutalist Header */}
-        <div className="text-center mb-16">
-          <p className="text-sm italic text-gray-500 mb-2">(03 TECHNICAL SKILLS)</p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tighter text-black mb-4">
-            TECHNICAL <span className="text-yellow-300">SKILLS</span>
+    <section id="skills" className="relative z-10 py-32">
+      <div className="container">
+        {/* Header */}
+        <div className="mb-20">
+          <span className="font-mono text-xs tracking-[0.3em] text-[var(--accent-crimson)] block mb-4">
+            技術 // CAPABILITIES
+          </span>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tight leading-none">
+            Technical
+            <br />
+            <span className="text-[var(--accent-crimson)] italic font-serif">Arsenal</span>
           </h2>
-          <div className="brutalist-accent-line mx-auto mb-8"></div>
-          <p className="text-xl font-mono text-black max-w-3xl mx-auto">
-            Comprehensive expertise spanning enterprise AI, fullstack development, and cybersecurity.
-          </p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="brutalist-grid-2 gap-8 mb-16">
-          {Object.entries(skillsData).map(([categoryId, category]) => (
-            <div
-              key={categoryId}
-              className={`brutalist-block brutalist-hover ${
-                activeCategory === categoryId ? 'bg-black text-white' : ''
-              }`}
-            >
-              <div className="brutalist-subheading text-yellow-300 mb-2">
-                <IconWrapper emoji={category.icon} size={40} color="black" />
-              </div>
-              <h4 className="text-lg font-bold uppercase mb-3">{category.title}</h4>
-              <p className="font-mono text-sm mb-4">{category.description}</p>
-              <div className="brutalist-accent-line-sm mb-4"></div>
-
-              <div
-                className={`transition-all duration-300 ${
-                  activeCategory === categoryId ? 'max-h-96 overflow-y-auto' : 'max-h-24 overflow-hidden'
+        {/* Terminal-style interface */}
+        <div className="grid lg:grid-cols-12 gap-8">
+          {/* Command palette - left side */}
+          <div className="lg:col-span-4 space-y-2">
+            {skillCategories.map((category, index) => (
+              <button
+                key={category.command}
+                onClick={() => setActiveCategory(index)}
+                className={`w-full text-left px-4 py-3 font-mono text-sm transition-all duration-300 relative overflow-hidden ${
+                  activeCategory === index
+                    ? 'text-[var(--accent-crimson)]'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
                 }`}
               >
-                <ul className="space-y-2">
-                  {category.skills.slice(0, activeCategory === categoryId ? undefined : 4).map((skill, index) => (
-                    <li key={index} className="flex items-start">
-                      <div className="h-2 w-2 mt-1 bg-yellow-300 mr-3"></div>
-                      <span className="font-mono text-sm">{skill}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Active indicator line */}
+                <div
+                  className={`absolute left-0 top-0 bottom-0 w-0.5 bg-[var(--accent-crimson)] transition-all duration-300 ${
+                    activeCategory === index ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+
+                {/* Prompt symbol */}
+                <span className={`mr-2 transition-colors ${
+                  activeCategory === index ? 'text-[var(--accent-crimson)]' : 'text-[var(--text-muted)]'
+                }`}>
+                  {activeCategory === index ? '>' : '$'}
+                </span>
+
+                {category.command}
+              </button>
+            ))}
+          </div>
+
+          {/* Output display - right side */}
+          <div className="lg:col-span-8">
+            {/* Terminal window */}
+            <div className="border border-[var(--border-subtle)] bg-[rgba(10,10,11,0.8)]">
+              {/* Terminal header */}
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--border-subtle)]">
+                <div className="w-3 h-3 rounded-full bg-[var(--accent-crimson)]" />
+                <div className="w-3 h-3 rounded-full bg-[var(--accent-gold)]" />
+                <div className="w-3 h-3 rounded-full bg-green-500" />
+                <span className="ml-4 font-mono text-xs text-[var(--text-muted)]">
+                  skills.sh — faiq@dojo
+                </span>
               </div>
 
-              <button
-                onClick={() => toggleCategory(categoryId)}
-                className="mt-4 text-xs font-bold uppercase border-2 border-black px-3 py-1 hover:bg-yellow-300 hover:text-black transition-colors"
-              >
-                {activeCategory === categoryId ? 'SHOW LESS' : 'SHOW MORE'}
-              </button>
+              {/* Terminal content */}
+              <div className="p-6 font-mono text-sm">
+                {/* Command line */}
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="text-[var(--accent-crimson)]">→</span>
+                  <span className="text-green-400">faiq</span>
+                  <span className="text-[var(--text-muted)]">in</span>
+                  <span className="text-[var(--accent-crimson)]">~/skills</span>
+                  <span className="text-[var(--text-muted)]">$</span>
+                  <span className="text-[var(--text-primary)]">{typedText}</span>
+                  <span className="w-2 h-4 bg-[var(--accent-crimson)] animate-pulse" />
+                </div>
+
+                {/* Output */}
+                <div className="space-y-1 mb-8">
+                  <p className="text-[var(--text-muted)]">
+                    Scanning {skillCategories[activeCategory].title.toLowerCase()}...
+                  </p>
+                  <p className="text-green-400">
+                    Found {skillCategories[activeCategory].skills.length} capabilities
+                  </p>
+                </div>
+
+                {/* Skills output - ASCII-style bars */}
+                <div className="space-y-4">
+                  {skillCategories[activeCategory].skills.map((skill, index) => (
+                    <div
+                      key={skill.name}
+                      className="group"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
+                          {skill.name}
+                        </span>
+                        <span className="text-[var(--text-muted)]">{skill.level}%</span>
+                      </div>
+
+                      {/* Progress bar - ASCII style */}
+                      <div className="flex items-center gap-1">
+                        <span className="text-[var(--accent-crimson)]">[</span>
+                        <div className="flex-1 h-1 bg-[var(--bg-elevated)] relative overflow-hidden">
+                          <div
+                            className="absolute inset-y-0 left-0 bg-gradient-to-r from-[var(--accent-crimson)] to-[var(--accent-gold)] transition-all duration-1000"
+                            style={{ width: `${skill.level}%` }}
+                          />
+                        </div>
+                        <span className="text-[var(--accent-crimson)]">]</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Cursor at end */}
+                <div className="mt-8 flex items-center gap-2">
+                  <span className="text-[var(--accent-crimson)]">→</span>
+                  <span className="text-green-400">faiq</span>
+                  <span className="text-[var(--text-muted)]">$</span>
+                  <span className="w-2 h-4 bg-[var(--text-muted)] animate-pulse" />
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
 
-        {/* Certifications Section */}
-        <div className="brutalist-block brutalist-hover">
-          <h3 className="brutalist-subheading text-yellow-300">PROFESSIONAL CERTIFICATIONS</h3>
-          <div className="brutalist-accent-line-sm mb-6"></div>
+        {/* LLM Models - floating badges */}
+        <div className="mt-20">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent" />
+            <span className="font-mono text-xs tracking-[0.2em] text-[var(--text-muted)]">
+              LLM EXPERIENCE
+            </span>
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent" />
+          </div>
 
-          <div className="brutalist-grid-3">
-            <div className="brutalist-block brutalist-hover-reverse">
-              <h4 className="text-lg font-bold uppercase mb-2">ISC2</h4>
-              <p className="font-mono text-sm mb-3">Certified in Cybersecurity</p>
-              <p className="font-mono text-xs">Industry-recognized cybersecurity knowledge and skills validation</p>
-              <div className="brutalist-accent-line-sm"></div>
-            </div>
-
-            <div className="brutalist-block brutalist-hover">
-              <h4 className="text-lg font-bold uppercase mb-2">MICROSOFT</h4>
-              <p className="font-mono text-sm mb-3">Security, Compliance & Identity</p>
-              <p className="font-mono text-xs">Cloud-based and Microsoft services security foundation</p>
-              <div className="brutalist-accent-line-sm"></div>
-            </div>
-
-            <div className="brutalist-block brutalist-hover-reverse">
-              <h4 className="text-lg font-bold uppercase mb-2">MICROSOFT</h4>
-              <p className="font-mono text-sm mb-3">Azure Fundamentals</p>
-              <p className="font-mono text-xs">Cloud concepts, services, workloads, security, and privacy</p>
-              <div className="brutalist-accent-line-sm"></div>
-            </div>
+          <div className="flex flex-wrap justify-center gap-6">
+            {models.map((model, i) => (
+              <div
+                key={model}
+                className="group relative"
+                style={{ transform: `translateY(${(i % 2) * 8}px)` }}
+              >
+                {/* Hexagonal badge */}
+                <div className="relative px-6 py-3">
+                  <svg
+                    className="absolute inset-0 w-full h-full"
+                    viewBox="0 0 120 50"
+                    preserveAspectRatio="none"
+                  >
+                    <polygon
+                      points="10,0 110,0 120,25 110,50 10,50 0,25"
+                      fill="none"
+                      stroke="var(--border-subtle)"
+                      strokeWidth="1"
+                      className="group-hover:stroke-[var(--accent-crimson)] transition-colors"
+                    />
+                  </svg>
+                  <span className="relative font-mono text-sm text-[var(--text-secondary)] group-hover:text-[var(--accent-crimson)] transition-colors">
+                    {model}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

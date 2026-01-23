@@ -1,107 +1,60 @@
 export interface ProjectItem {
   title: string;
-  icon: string;
-  shortDescription: string;
-  fullDescription: string;
+  tag: string;
+  description: string;
+  highlights: string[];
   technologies: string[];
-  keyFeatures?: string[];
-  outcome?: string;
-  github?: string;
+  link?: string;
+  linkLabel?: string;
 }
 
 export const projectsData: ProjectItem[] = [
   {
-    title: "Health Canvas - Hackathon Project",
-    icon: "🏥",
-    shortDescription: "AI-powered clinical canvas platform with RAG for medical document processing and analysis.",
-    fullDescription: "Single-handedly designed and developed an AI-powered clinical canvas platform using modern tech stack (React, TypeScript, FastAPI, OpenAI GPT-4). Engineered scalable healthcare application with real-time patient data visualization, automated clinical documentation, and semantic search capabilities. Processing complex 15-page medical histories with 90%+ accuracy using retrieval-augmented generation (RAG) with FAISS vector search.",
-    technologies: ["React", "TypeScript", "FastAPI", "OpenAI GPT-4", "FAISS", "RAG", "Healthcare"],
-    keyFeatures: [
-      "AI-powered clinical canvas with real-time patient data visualization",
-      "Retrieval-augmented generation (RAG) with FAISS vector search",
-      "Automated clinical documentation and semantic search",
-      "Processing of complex 15-page medical histories with 90%+ accuracy"
+    title: "Health Canvas",
+    tag: "Hackathon",
+    description: "AI-powered clinical canvas platform built in 48 hours. RAG pipeline with FAISS vector search processing 15-page medical histories at 90%+ extraction accuracy.",
+    highlights: [
+      "Top 5 as only solo developer among 150+ participants (30+ teams)",
+      "Government-backed hackathon by Malaysian Ministry of Health and National AI Office"
     ],
-    outcome: "Placed top 5 as the only solo participant in competitive government-backed AI hackathon (30+ teams, 2-4 developers each) hosted by AI Tinkerers, Malaysian Ministry of Health, and Malaysian National AI Office.",
-    github: "https://github.com/faiqhilman13/HospitalCanvas"
+    technologies: ["React", "TypeScript", "FastAPI", "GPT-4", "FAISS"],
+    link: "https://github.com/faiqhilman13/HospitalCanvas",
+    linkLabel: "GitHub"
   },
   {
-    title: "Mini IDP - AI Workflow Platform",
-    icon: "🤖",
-    shortDescription: "Unified AI/ML workflow platform with RAG pipelines, model training, and document intelligence.",
-    fullDescription: "Built a unified AI/ML workflow and retrieval-augmented generation (RAG) platform combining model training, document intelligence, and conversational analytics. Achieved 89.65% R² performance with sub-second model training across 10+ algorithms (Random Forest, SVM, Logistic Regression). Developed multi-stage RAG pipeline improving document recall by 60% with semantic clustering, cross-encoder reranking, and LangChain orchestration with FAISS vector search. Integrated llama3:8b LLM with session-based authentication and sliding-window chunking.",
-    technologies: ["FastAPI", "React", "Supabase", "PostgreSQL", "LangChain", "FAISS", "llama3", "Docker", "AWS"],
-    keyFeatures: [
-      "Sub-second model training on 10+ ML algorithms with 89.65% R² accuracy",
-      "Multi-stage RAG pipeline with 60% improved document recall",
-      "Enterprise-grade backend with Row-Level Security (RLS) and JSONB indexing",
-      "Session-based authentication with real-time evaluation"
+    title: "ImuAI",
+    tag: "Production",
+    description: "Production RAG system serving Malaysian Muslim community with grounded, cited answers from 40k+ Islamic sources across Quran, hadith, and fiqh rulings.",
+    highlights: [
+      "Parsed and embedded 250k+ knowledge chunks from heterogeneous sources",
+      "Hybrid search (pgvector + BM25), two-stage reranking, real-time streaming"
     ],
-    outcome: "Delivered production-level ML platform with optimized 6-table schema, Docker containers, CI/CD pipelines, and AWS orchestration enabling secure, scalable data operations and rapid iteration.",
-    github: "https://github.com/faiqhilman13/ML-RAG-platform-fork-"
+    technologies: ["React", "FastAPI", "PostgreSQL", "pgvector", "Redis", "Docker"],
+    link: "https://timely-tulumba-ac41cb.netlify.app/",
+    linkLabel: "Live"
   },
   {
-    title: "Intelligent B2B Lead Generation Platform",
-    icon: "🚀",
-    shortDescription: "Fully orchestrated workflow automation engine for B2B lead ingestion, LLM-powered email generation, and campaign tracking.",
-    fullDescription: "Built a fully orchestrated workflow automation engine using n8n for lead ingestion, personalized email generation via LLM prompts, PDF proposal attachments, and campaign tracking, built for B2B marketers to automate cold outreach using personalized LLM-generated emails and campaign tracking, enabling consistent lead flow without manual effort.",
-    technologies: ["n8n", "LLM", "Workflow Automation", "PDF Generation", "Campaign Tracking"],
-    keyFeatures: [
-      "Automated lead ingestion and enrichment",
-      "Personalized LLM-powered email generation",
-      "PDF proposal attachments",
-      "Campaign tracking and analytics"
+    title: "LLM Evaluation Harness",
+    tag: "Research",
+    description: "Production-grade evaluation harness comparing base models, API models, and fine-tuned variants using GPT-4o-mini as judge. ~87% accuracy on domain-specific benchmarks.",
+    highlights: [
+      "QLoRA fine-tuning pipeline on consumer hardware (single 12GB GPU)",
+      "TinyLlama-1.1B Malay instruction scores lifted ~200%"
     ],
-    outcome: "Automated and personalized B2B lead generation, reducing manual effort and increasing lead flow.",
-    github: "https://github.com/faiqhilman13/leadgen"
+    technologies: ["Python", "QLoRA", "Hugging Face", "SQLite"],
+    link: "https://github.com/faiqhilman13/LLM-eval",
+    linkLabel: "GitHub"
   },
   {
-    title: "RAG-Powered Knowledge Chatbot",
-    icon: "💬",
-    shortDescription: "Local RAG chatbot for semantic Q&A across multiple PDFs using LangChain, FAISS, FastAPI, and Ollama.",
-    fullDescription: "Built a fullstack local RAG chatbot using LangChain, FAISS, FastAPI, and Ollama, enabling semantic question-answering across multiple uploaded PDFs. Engineered dynamic context filtering with vector index rebuilding and cross-encoder re-ranking, solving ghost context issues and boosting LLM answer precision.",
-    technologies: ["LangChain", "FAISS", "FastAPI", "Ollama", "RAG", "Vector Search"],
-    keyFeatures: [
-      "Semantic Q&A over multiple PDFs",
-      "Dynamic context filtering and vector index rebuilding",
-      "Cross-encoder re-ranking for improved answer precision"
+    title: "Mini IDP",
+    tag: "Platform",
+    description: "Unified AI/ML workflow and RAG platform with 89.65% R² model training across 10+ algorithms, featuring adaptive preprocessing and sub-second inference.",
+    highlights: [
+      "Multi-stage RAG pipeline improving document recall by 60%",
+      "Deployed on FastAPI/React/Supabase with Docker and CI/CD"
     ],
-    outcome: "Boosted LLM answer precision and solved ghost context issues for enterprise document Q&A."
-  },
-  {
-    title: "Exploring Health Disparities in the UK",
-    icon: "🔍",
-    shortDescription: "Spatial analysis of health outcomes using GWR and machine learning to identify socioeconomic factors affecting public health.",
-    fullDescription: "This research project analyzed the spatial relationships between socioeconomic factors and public health outcomes across the UK. By combining geodemographic techniques with advanced machine learning models, we were able to identify significant patterns in how occupation, economic status, and ethnicity correlated with health disparities across different regions.",
-    technologies: [
-      "Python", "GeoPandas", "Machine Learning", "Neural Networks", "Random Forest", 
-      "SVM", "Geographically Weighted Regression", "Optuna", "Feature Selection"
-    ],
-    keyFeatures: [
-      "Geodemographic analysis using Geographically Weighted Regression (GWR)",
-      "Implementation of multiple machine learning models including Neural Networks, Random Forest, and SVM",
-      "Rigorous feature selection process to identify the most significant socioeconomic indicators",
-      "Hyperparameter optimization using Optuna",
-      "Spatial visualization of health outcome variability"
-    ],
-    outcome: "The analysis provided actionable insights for public health interventions by identifying key socioeconomic factors with the strongest correlation to health disparities across different UK regions, creating a foundation for more targeted urban development strategies."
-  },
-  {
-    title: "Cloud-Based Big Data Optimization Project",
-    icon: "☁️",
-    shortDescription: "High-performance distributed data processing implementation using PySpark and TensorFlow on Google Cloud.",
-    fullDescription: "Implemented an optimized Big Data processing system using distributed computing technologies. The project focused on maximizing throughput and minimizing processing time for large-scale image datasets by leveraging Apache Spark's distributed processing capabilities combined with TensorFlow for efficient computation. The system was deployed on Google Cloud Dataproc to take advantage of scalable cloud resources.",
-    technologies: [
-      "PySpark", "TensorFlow", "Google Cloud Platform", "Dataproc", "Cloud Storage", 
-      "Distributed Computing", "TFRecord", "Data Processing Optimization"
-    ],
-    keyFeatures: [
-      "Distributed data ingestion and processing workflows using Apache Spark (PySpark)",
-      "TensorFlow integration for optimized image processing",
-      "Cloud-based speed tests and workload distribution experiments",
-      "TFRecord optimization for improved storage and retrieval",
-      "Benchmarking against traditional processing methods"
-    ],
-    outcome: "Achieved a peak throughput of 363.21 images/second and reduced data processing time by up to 74% compared to standard image decoding methods. TFRecord-based storage yielded a 2.5x improvement in reading speed over traditional image file loading."
+    technologies: ["FastAPI", "React", "Supabase", "LangChain", "Docker"],
+    link: "#",
+    linkLabel: "Demo"
   }
 ];

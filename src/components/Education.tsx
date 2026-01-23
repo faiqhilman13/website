@@ -1,78 +1,113 @@
-import React from 'react';
-import { educationData } from '../data/educationData';
-
 export const Education: React.FC = () => {
+  const education = [
+    {
+      institution: 'City, University of London',
+      degree: 'MSc Data Science',
+      period: '2022 — 2024',
+      location: 'London, UK',
+      icon: '獅', // Lion (UK symbol)
+      coursework: ['Machine Learning', 'Neural Computing', 'Big Data', 'Visual Analytics', 'Knowledge Graphs'],
+    },
+    {
+      institution: 'University of Melbourne',
+      degree: 'Bachelor of Commerce',
+      period: '2017 — 2019',
+      location: 'Melbourne, AU',
+      icon: '虎', // Tiger/Power
+      coursework: ['Financial Analysis', 'M&A', 'Derivatives', 'Quantitative Methods', 'Investments'],
+    },
+  ];
+
   return (
-    <section id="education" className="py-20 bg-white">
-      <div className="brutalist-section">
-        {/* Brutalist Header */}
-        <div className="text-center mb-16">
-          <p className="text-sm italic text-gray-500 mb-2">(04 EDUCATION)</p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tighter text-black mb-4">
-            ACADEMIC <span className="text-yellow-300">BACKGROUND</span>
+    <section id="education" className="relative z-10 py-32">
+      <div className="container">
+        {/* Header */}
+        <div className="mb-20">
+          <span className="font-mono text-xs tracking-[0.3em] text-[var(--accent-crimson)] block mb-4">
+            学歴 // TRAINING GROUNDS
+          </span>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tight leading-none">
+            Academic
+            <br />
+            <span className="text-[var(--accent-crimson)] italic font-serif">Discipline</span>
           </h2>
-          <div className="brutalist-accent-line mx-auto mb-8"></div>
-          <p className="text-xl font-mono text-black max-w-3xl mx-auto">
-            Formal education spanning data science, finance, and business analytics.
-          </p>
         </div>
 
-        {/* Education Grid */}
-        <div className="brutalist-grid-2 mb-16">
-          {educationData.map((edu, index) => (
-            <div key={index} className="brutalist-block brutalist-hover">
-              <h3 className="brutalist-subheading text-yellow-300">{edu.institution}</h3>
-              <p className="text-lg font-mono mb-2">{edu.degree}</p>
-              <p className="font-mono text-sm mb-3">{edu.period} • {edu.location}</p>
-              <div className="brutalist-accent-line-sm mb-4"></div>
-
-              <div className="space-y-3 mb-4">
-                <p className="font-mono text-sm">
-                  <span className="font-bold">COURSEWORK:</span> {edu.coursework}
-                </p>
+        {/* Education items - Scroll/Diploma style */}
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
+          {education.map((edu, index) => (
+            <div key={edu.institution} className="group relative">
+              {/* Large kanji background */}
+              <div className="absolute -top-8 -right-4 text-[10rem] font-bold text-[var(--border-subtle)] opacity-30 select-none pointer-events-none leading-none group-hover:text-[var(--accent-crimson)] group-hover:opacity-10 transition-all duration-700">
+                {edu.icon}
               </div>
 
-              {edu.achievements && (
-                <div className="mt-4">
-                  <h4 className="text-lg font-bold uppercase mb-3">LEADERSHIP ROLES</h4>
-                  <ul className="space-y-2">
-                    {edu.achievements.map((achievement, aIndex) => (
-                      <li key={aIndex} className="flex items-start">
-                        <div className="h-2 w-2 mt-1 bg-yellow-300 mr-3"></div>
-                        <span className="font-mono text-sm">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
+              {/* Content */}
+              <div className="relative">
+                {/* Period - diagonal badge */}
+                <div className="inline-flex items-center gap-3 mb-6">
+                  <div className="w-12 h-px bg-[var(--accent-crimson)]" />
+                  <span className="font-mono text-xs tracking-[0.2em] text-[var(--accent-crimson)]">
+                    {edu.period}
+                  </span>
                 </div>
-              )}
+
+                {/* Degree */}
+                <h3 className="text-3xl font-bold mb-2 group-hover:text-[var(--accent-crimson)] transition-colors">
+                  {edu.degree}
+                </h3>
+
+                {/* Institution */}
+                <p className="text-xl text-[var(--text-secondary)] mb-2">
+                  {edu.institution}
+                </p>
+
+                {/* Location */}
+                <p className="font-mono text-sm text-[var(--text-muted)] mb-8">
+                  {edu.location}
+                </p>
+
+                {/* Coursework - flowing tags */}
+                <div className="relative">
+                  <span className="font-mono text-xs tracking-[0.15em] text-[var(--text-muted)] block mb-4">
+                    DISCIPLINES
+                  </span>
+
+                  <div className="flex flex-wrap gap-x-6 gap-y-3">
+                    {edu.coursework.map((course, i) => (
+                      <span
+                        key={course}
+                        className="relative text-[var(--text-secondary)] text-sm group-hover:text-[var(--text-primary)] transition-colors"
+                      >
+                        {course}
+                        {i < edu.coursework.length - 1 && (
+                          <span className="absolute -right-4 top-1/2 -translate-y-1/2 w-1 h-1 bg-[var(--accent-crimson)] rounded-full" />
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Bottom accent line */}
+                <div className="mt-8 h-px bg-gradient-to-r from-[var(--accent-crimson)] via-[var(--border-subtle)] to-transparent" />
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Academic Journey Summary */}
-        <div className="brutalist-grid-3 mb-16">
-          <div className="brutalist-block brutalist-hover-reverse">
-            <h4 className="text-lg font-bold uppercase mb-2">DATA SCIENCE</h4>
-            <p className="font-mono text-sm mb-3">City University London</p>
-            <p className="font-mono text-sm mb-3">MSc Data Science</p>
-            <p className="font-mono text-sm mb-3">Machine Learning • Neural Networks</p>
-            <div className="brutalist-accent-line-sm"></div>
-          </div>
-
-          <div className="brutalist-block brutalist-hover">
-            <h4 className="text-lg font-bold uppercase mb-2">FINANCE FOCUS</h4>
-            <p className="font-mono text-sm mb-3">University of Melbourne</p>
-            <p className="font-mono text-sm mb-3">Bachelor of Commerce</p>
-            <p className="font-mono text-sm mb-3">M&A • Derivatives • Financial Analysis</p>
-            <div className="brutalist-accent-line-sm"></div>
-          </div>
-
-          <div className="brutalist-block brutalist-hover-reverse">
-            <h4 className="text-lg font-bold uppercase mb-2">EVOLUTION</h4>
-            <p className="font-mono text-sm mb-3">Finance → Data Science</p>
-            <p className="font-mono text-sm mb-3">→ AI/ML • Cybersecurity</p>
-            <p className="font-mono text-sm mb-3">→ Fullstack Development</p>
-            <div className="brutalist-accent-line-sm"></div>
+        {/* Evolution path */}
+        <div className="mt-24 relative">
+          <div className="flex items-center justify-center gap-8 flex-wrap">
+            {['Finance', 'Data Science', 'AI/ML', 'Full-Stack'].map((phase, i, arr) => (
+              <div key={phase} className="flex items-center gap-8">
+                <span className="font-mono text-sm text-[var(--text-muted)] hover:text-[var(--accent-crimson)] transition-colors cursor-default">
+                  {phase}
+                </span>
+                {i < arr.length - 1 && (
+                  <div className="w-8 h-px bg-[var(--accent-crimson)] transform -rotate-12" />
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>

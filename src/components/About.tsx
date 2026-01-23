@@ -1,145 +1,110 @@
-import React from 'react';
-
 export const About: React.FC = () => {
+  const expertise = [
+    { label: 'Multi-Agent Systems', desc: 'Orchestrating AI agents for enterprise workflows' },
+    { label: 'RAG Pipelines', desc: 'Hybrid retrieval with pgvector & BM25' },
+    { label: 'Full-Stack AI', desc: 'React/TypeScript + Python/FastAPI' },
+    { label: 'Cloud Deploy', desc: 'AWS Bedrock, CodePipeline, Docker' },
+  ];
+
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="brutalist-section">
-        {/* Brutalist Header */}
-        <div className="text-center mb-16">
-          <p className="text-sm italic text-gray-500 mb-2">(ABOUT ME)</p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tighter text-black mb-4">
-            UNAPOLOGETIC <span className="text-yellow-300">ENGINEER</span>
-          </h2>
-          <div className="brutalist-accent-line mx-auto mb-8"></div>
-          <p className="text-xl font-mono text-black max-w-3xl mx-auto">
-            Technology Consultant with cross-domain expertise spanning AI, cybersecurity, and fullstack development.
-          </p>
-        </div>
+    <section id="about" className="relative z-10 py-32">
+      {/* Diagonal accent line */}
+      <div
+        className="absolute left-0 top-1/4 w-1/3 h-px bg-gradient-to-r from-[var(--accent-crimson)] to-transparent"
+        style={{ transform: 'rotate(-5deg)' }}
+      />
 
-        {/* About Grid */}
-        <div className="brutalist-grid mb-16">
-          {/* Profile Card */}
-          <div className="md:col-span-4">
-            <div className="brutalist-card brutalist-hover">
-              <div className="aspect-square bg-yellow-300 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-black text-6xl font-bold text-center px-4">
-                    Faiq Hilman
+      <div className="container">
+        <div className="grid lg:grid-cols-12 gap-16">
+          {/* Left column - Statement */}
+          <div className="lg:col-span-7">
+            <span className="font-mono text-xs tracking-[0.3em] text-[var(--accent-crimson)] block mb-4">
+              自己紹介 // INTRODUCTION
+            </span>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight leading-none mb-12">
+              Building AI
+              <br />
+              <span className="text-[var(--accent-crimson)] italic font-serif">That Ships</span>
+            </h2>
+
+            {/* Manifesto-style text */}
+            <div className="space-y-8 max-w-2xl">
+              <p className="text-xl text-[var(--text-secondary)] leading-relaxed">
+                <span className="text-[var(--text-primary)] font-semibold">2 years shipping production LLM systems</span> to
+                enterprise customers. Technical backbone of an RM 10M+ AI program at EY.
+              </p>
+
+              <p className="text-lg text-[var(--text-secondary)] leading-relaxed border-l-2 border-[var(--accent-crimson)] pl-6">
+                My work sits at the intersection of AI engineering and full-stack development—building
+                multi-agent orchestration systems, RAG pipelines, and customer-facing solutions that
+                <span className="text-[var(--accent-crimson)]"> actually get deployed</span>.
+              </p>
+
+              <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+                Delivered &gt;80% of 3 production AI systems solo using agentic coding workflows.
+                Top 3 contributor on a 100K+ LOC enterprise codebase.
+              </p>
+            </div>
+
+            {/* Credentials - inline */}
+            <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <span className="font-mono text-xs text-[var(--text-muted)]">Credentials:</span>
+              {['ISC2 Cybersecurity', 'MS Azure', 'MS Security'].map((cert, i) => (
+                <span key={cert} className="flex items-center gap-4">
+                  <span className="font-mono text-xs text-[var(--text-secondary)]">{cert}</span>
+                  {i < 2 && <span className="text-[var(--accent-crimson)]">/</span>}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Right column - Expertise grid */}
+          <div className="lg:col-span-5">
+            <div className="sticky top-32">
+              <span className="font-mono text-xs tracking-[0.2em] text-[var(--text-muted)] block mb-8">
+                CORE EXPERTISE
+              </span>
+
+              <div className="space-y-6">
+                {expertise.map((item, index) => (
+                  <div
+                    key={item.label}
+                    className="group relative pl-6"
+                  >
+                    {/* Vertical line with dot */}
+                    <div className="absolute left-0 top-0 bottom-0 w-px bg-[var(--border-subtle)] group-hover:bg-[var(--accent-crimson)] transition-colors" />
+                    <div className="absolute left-0 top-2 w-px h-px">
+                      <div className="absolute -left-1 -top-1 w-2 h-2 bg-[var(--bg-void)] border border-[var(--border-subtle)] group-hover:border-[var(--accent-crimson)] group-hover:bg-[var(--accent-crimson)] transition-all" style={{ transform: 'rotate(45deg)' }} />
+                    </div>
+
+                    <h3 className="text-lg font-semibold mb-1 group-hover:text-[var(--accent-crimson)] transition-colors">
+                      {item.label}
+                    </h3>
+                    <p className="text-sm text-[var(--text-muted)]">
+                      {item.desc}
+                    </p>
                   </div>
+                ))}
+              </div>
+
+              {/* LLM models */}
+              <div className="mt-12 pt-8 border-t border-[var(--border-subtle)]">
+                <span className="font-mono text-xs tracking-[0.15em] text-[var(--text-muted)] block mb-4">
+                  MODELS
+                </span>
+                <div className="flex flex-wrap gap-3">
+                  {['Claude', 'GPT-4', 'Llama', 'Mistral', 'Qwen'].map((model) => (
+                    <span
+                      key={model}
+                      className="px-3 py-1 font-mono text-xs text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:border-[var(--accent-crimson)] hover:text-[var(--accent-crimson)] transition-colors cursor-default"
+                    >
+                      {model}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
-
-          {/* Key Stats */}
-          <div className="md:col-span-8">
-            <div className="brutalist-block brutalist-hover">
-              <h3 className="brutalist-subheading text-yellow-300">ENGINEERING PROFILE</h3>
-              <div className="brutalist-accent-line-sm mb-6"></div>
-
-              <div className="space-y-4 mb-6">
-                <p className="font-mono">
-                  Technology Consultant at EY building enterprise GenAI platforms for 30,000+ user organizations.
-                  Cross-functional expertise spanning AI/ML Engineering, Fullstack Development, and Cybersecurity.
-                  Finance background providing strategic business value translation for complex technical solutions.
-                </p>
-
-                <div className="brutalist-grid-3">
-                  <div className="text-center">
-                    <h4 className="text-2xl font-bold text-yellow-300">30K+</h4>
-                    <p className="font-mono text-xs">USERS SERVED</p>
-                  </div>
-                  <div className="text-center">
-                    <h4 className="text-2xl font-bold text-yellow-300">4+</h4>
-                    <p className="font-mono text-xs">PRODUCTION SYSTEMS</p>
-                  </div>
-                  <div className="text-center">
-                    <h4 className="text-2xl font-bold text-yellow-300">90%+</h4>
-                    <p className="font-mono text-xs">ACCURACY RATE</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <h4 className="text-lg font-bold uppercase mb-3">KEY EXPERTISE</h4>
-                <div className="space-y-2">
-                  <p className="font-mono text-sm">
-                    <span className="font-bold">AI/ML:</span> GenAI platforms, RAG systems, LLM integration
-                  </p>
-                  <p className="font-mono text-sm">
-                    <span className="font-bold">FULLSTACK:</span> React.js, .NET, Python, AWS infrastructure
-                  </p>
-                  <p className="font-mono text-sm">
-                    <span className="font-bold">SECURITY:</span> Enterprise security, compliance, OT cybersecurity
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Technical Journey */}
-        <div className="brutalist-grid-3 mb-8">
-          <div className="brutalist-block brutalist-hover-reverse">
-            <h4 className="text-lg font-bold uppercase mb-2">CURRENT ROLE</h4>
-            <p className="font-mono text-sm mb-3">EY Consulting</p>
-            <p className="font-mono text-sm mb-3">Technology Consultant</p>
-            <p className="font-mono text-sm mb-3">Aug 2024 - Present</p>
-            <div className="brutalist-accent-line-sm"></div>
-          </div>
-
-          <div className="brutalist-block brutalist-hover">
-            <h4 className="text-lg font-bold uppercase mb-2">EDUCATION</h4>
-            <p className="font-mono text-sm mb-3">MSc Data Science</p>
-            <p className="font-mono text-sm mb-3">City University London</p>
-            <p className="font-mono text-sm mb-3">BCom University of Melbourne</p>
-            <div className="brutalist-accent-line-sm"></div>
-          </div>
-
-          <div className="brutalist-block brutalist-hover-reverse">
-            <h4 className="text-lg font-bold uppercase mb-2">SKILLS EVOLUTION</h4>
-            <p className="font-mono text-sm mb-3">Finance → Data Science</p>
-            <p className="font-mono text-sm mb-3">→ Cybersecurity → AI/ML</p>
-            <p className="font-mono text-sm mb-3">→ Fullstack Development</p>
-            <div className="brutalist-accent-line-sm"></div>
-          </div>
-        </div>
-
-        {/* Core Capabilities */}
-        <div className="brutalist-grid-3 mb-16">
-          <div className="brutalist-block brutalist-hover">
-            <h3 className="brutalist-subheading text-yellow-300">ENTERPRISE AI</h3>
-            <div className="brutalist-accent-line-sm mb-4"></div>
-            <p className="font-mono text-sm mb-2">Production systems design</p>
-            <p className="font-mono text-sm mb-2">Microservices architecture</p>
-            <p className="font-mono text-sm mb-2">30K+ user scaling</p>
-            <div className="brutalist-accent-line-sm"></div>
-          </div>
-
-          <div className="brutalist-block brutalist-hover-reverse">
-            <h3 className="brutalist-subheading text-yellow-300">FULLSTACK DEV</h3>
-            <div className="brutalist-accent-line-sm mb-4"></div>
-            <p className="font-mono text-sm mb-2">React.js frontends</p>
-            <p className="font-mono text-sm mb-2">.NET backends</p>
-            <p className="font-mono text-sm mb-2">Python data systems</p>
-            <div className="brutalist-accent-line-sm"></div>
-          </div>
-
-          <div className="brutalist-block brutalist-hover">
-            <h3 className="brutalist-subheading text-yellow-300">SECURITY</h3>
-            <div className="brutalist-accent-line-sm mb-4"></div>
-            <p className="font-mono text-sm mb-2">Enterprise security</p>
-            <p className="font-mono text-sm mb-2">Compliance frameworks</p>
-            <p className="font-mono text-sm mb-2">OT cybersecurity</p>
-            <div className="brutalist-accent-line-sm"></div>
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center">
-          <a href="#contact" className="brutalist-button">
-            DISCUSS COLLABORATION
-          </a>
         </div>
       </div>
     </section>
