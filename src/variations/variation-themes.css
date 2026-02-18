@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:wght@400;500;600&family=Share+Tech+Mono&display=swap');
+
+/* ============================================================
+   VOID THEME
+   ============================================================ */
+.theme-void {
+  --bg-void: #000000;
+  --bg-surface: #080808;
+  --bg-elevated: #101010;
+  --bg-glass: rgba(8, 8, 8, 0.88);
+  --text-primary: #f0ede8;
+  --text-secondary: #c0bdb6;
+  --text-muted: #807d76;
+  --accent-crimson: #c8a96e;
+  --accent-crimson-glow: rgba(200, 169, 110, 0.18);
+  --accent-gold: #ffffff;
+  --accent-gold-glow: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(200, 169, 110, 0.12);
+  --border-strong: rgba(200, 169, 110, 0.28);
+  --font-display: 'Cinzel', serif;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-serif: 'Cinzel', serif;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--border-strong);
+  background: color-mix(in srgb, var(--bg-surface) 70%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.theme-void .section-title,
+.theme-void .hero-title-void {
+  font-family: var(--font-display);
+}
+
+.theme-void .hero-title-void {
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.theme-void .hero-title-void span {
+  color: var(--accent-crimson);
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.theme-void .hero-sub-void {
+  font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 38rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.theme-void .glass-card {
+  border: 1px solid var(--border-subtle);
+  background: linear-gradient(
+    160deg,
+    rgba(10, 10, 10, 0.9),
+    rgba(6, 6, 6, 0.95)
+  );
+  backdrop-filter: blur(16px);
+}
+
+.theme-void .btn-primary {
+  background: transparent;
+  border: 1px solid var(--accent-crimson);
+  color: var(--accent-crimson);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.theme-void .btn-primary:hover {
+  background: var(--accent-crimson);
+  color: #000000;
+  box-shadow: 0 0 28px rgba(200, 169, 110, 0.4);
+}
+
+.theme-void .btn-secondary {
+  border-color: rgba(200, 169, 110, 0.3);
+  color: var(--text-secondary);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.theme-void .btn-secondary:hover {
+  border-color: var(--accent-crimson);
+  color: var(--accent-crimson);
+}
+
+.theme-void .section-tag {
+  color: var(--accent-crimson);
+}
+
+.void-backdrop {
+  background: #000000;
+}
+
+.void-scene {
+  opacity: 1;
+}
+
+.void-vignette {
+  background: radial-gradient(ellipse at center 40%, transparent 25%, rgba(0, 0, 0, 0.7) 100%);
+  opacity: 0.8;
+}
+
+.void-divider {
+  width: 3rem;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-crimson), transparent);
+  margin: 1.5rem 0;
+}
+
+.void-data-row {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+.void-data-row div {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.void-data-row strong {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-crimson);
+  letter-spacing: 0.05em;
+}
+
+.void-data-row span {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  .void-scene {
+    opacity: 0.5;
+  }
+
+  .theme-void .hero-title-void {
+    font-size: clamp(2.4rem, 11vw, 4.2rem);
+  }
+}
