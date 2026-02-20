@@ -4,19 +4,19 @@
    VOID THEME
    ============================================================ */
 .theme-void {
-  --bg-void: #000000;
-  --bg-surface: #080808;
-  --bg-elevated: #101010;
-  --bg-glass: rgba(8, 8, 8, 0.88);
-  --text-primary: #f0ede8;
-  --text-secondary: #c0bdb6;
-  --text-muted: #807d76;
-  --accent-crimson: #c8a96e;
-  --accent-crimson-glow: rgba(200, 169, 110, 0.18);
-  --accent-gold: #ffffff;
-  --accent-gold-glow: rgba(255, 255, 255, 0.1);
-  --border-subtle: rgba(200, 169, 110, 0.12);
-  --border-strong: rgba(200, 169, 110, 0.28);
+  --bg-void: #fafaf8;
+  --bg-surface: #f2f0eb;
+  --bg-elevated: #e8e4dd;
+  --bg-glass: rgba(250, 250, 248, 0.85);
+  --text-primary: #1a1917;
+  --text-secondary: #4a4844;
+  --text-muted: #8a8680;
+  --accent-crimson: #8b5e15;
+  --accent-crimson-glow: rgba(139, 94, 21, 0.12);
+  --accent-gold: #1a1917;
+  --accent-gold-glow: rgba(26, 25, 23, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
   --font-display: 'Cinzel', serif;
   --font-mono: 'Share Tech Mono', monospace;
   --font-serif: 'Cinzel', serif;
@@ -70,8 +70,8 @@
   border: 1px solid var(--border-subtle);
   background: linear-gradient(
     160deg,
-    rgba(10, 10, 10, 0.9),
-    rgba(6, 6, 6, 0.95)
+    rgba(250, 250, 248, 0.9),
+    rgba(242, 240, 235, 0.95)
   );
   backdrop-filter: blur(16px);
 }
@@ -88,8 +88,8 @@
 
 .theme-void .btn-primary:hover {
   background: var(--accent-crimson);
-  color: #000000;
-  box-shadow: 0 0 28px rgba(200, 169, 110, 0.4);
+  color: #ffffff;
+  box-shadow: 0 0 28px rgba(139, 94, 21, 0.35);
 }
 
 .theme-void .btn-secondary {
@@ -111,7 +111,7 @@
 }
 
 .void-backdrop {
-  background: #000000;
+  background: #fafaf8;
 }
 
 .void-scene {
@@ -119,7 +119,7 @@
 }
 
 .void-vignette {
-  background: radial-gradient(ellipse at center 40%, transparent 25%, rgba(0, 0, 0, 0.7) 100%);
+  background: radial-gradient(ellipse at center 40%, transparent 25%, rgba(0, 0, 0, 0.06) 100%);
   opacity: 0.8;
 }
 

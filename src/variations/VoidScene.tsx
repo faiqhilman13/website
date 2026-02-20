@@ -24,14 +24,16 @@ export const VoidScene: React.FC<VoidSceneProps> = ({ className }) => {
     renderer.toneMappingExposure = 1.0;
     container.appendChild(renderer.domElement);
 
-    // Central dark sphere
+    // Central sphere
     const sphereGeo = new THREE.IcosahedronGeometry(4.8, 4);
     const sphereMat = new THREE.MeshStandardMaterial({
-      color: 0x0a0804,
-      emissive: 0x1a1208,
-      emissiveIntensity: 0.4,
-      metalness: 0.8,
-      roughness: 0.3,
+      color: 0x1a1208,
+      emissive: 0xc8a96e,
+      emissiveIntensity: 0.2,
+      metalness: 0.9,
+      roughness: 0.2,
+      transparent: true,
+      opacity: 0.25,
     });
     const sphere = new THREE.Mesh(sphereGeo, sphereMat);
     scene.add(sphere);
@@ -39,17 +41,17 @@ export const VoidScene: React.FC<VoidSceneProps> = ({ className }) => {
     // Wireframe overlay on sphere
     const wireGeo = new THREE.IcosahedronGeometry(4.85, 4);
     const wireMat = new THREE.MeshBasicMaterial({
-      color: 0xc8a96e, wireframe: true, transparent: true, opacity: 0.08,
+      color: 0xc8a96e, wireframe: true, transparent: true, opacity: 0.18,
     });
     scene.add(new THREE.Mesh(wireGeo, wireMat));
 
     // Orbital ring definitions: [radius, axisX, axisZ, speed, opacity]
     const ringDefs = [
-      { r: 9, ax: 0, az: 0, speed: 0.18, op: 0.55, color: 0xc8a96e },
-      { r: 13, ax: Math.PI * 0.28, az: 0.4, speed: -0.12, op: 0.38, color: 0xc8a96e },
-      { r: 17.5, ax: Math.PI * 0.55, az: -0.3, speed: 0.09, op: 0.28, color: 0xa08858 },
-      { r: 22, ax: Math.PI * 0.18, az: 0.7, speed: -0.065, op: 0.18, color: 0x806840 },
-      { r: 27, ax: Math.PI * 0.72, az: 0.2, speed: 0.045, op: 0.12, color: 0x604828 },
+      { r: 9, ax: 0, az: 0, speed: 0.18, op: 0.65, color: 0x8a6030 },
+      { r: 13, ax: Math.PI * 0.28, az: 0.4, speed: -0.12, op: 0.48, color: 0x8a6030 },
+      { r: 17.5, ax: Math.PI * 0.55, az: -0.3, speed: 0.09, op: 0.36, color: 0x6a4820 },
+      { r: 22, ax: Math.PI * 0.18, az: 0.7, speed: -0.065, op: 0.24, color: 0x4a3010 },
+      { r: 27, ax: Math.PI * 0.72, az: 0.2, speed: 0.045, op: 0.16, color: 0x3a2008 },
     ];
 
     const rings: THREE.Mesh[] = [];
@@ -82,8 +84,8 @@ export const VoidScene: React.FC<VoidSceneProps> = ({ className }) => {
       }
       beadGeo.setAttribute('position', new THREE.BufferAttribute(beadPos, 3));
       const beadMat = new THREE.PointsMaterial({
-        color: def.color, size: 0.18, transparent: true, opacity: def.op * 1.6,
-        blending: THREE.AdditiveBlending, depthWrite: false,
+        color: def.color, size: 0.18, transparent: true, opacity: def.op * 1.4,
+        depthWrite: false,
       });
       group.add(new THREE.Points(beadGeo, beadMat));
     });
@@ -98,14 +100,14 @@ export const VoidScene: React.FC<VoidSceneProps> = ({ className }) => {
     }
     starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
     scene.add(new THREE.Points(starGeo, new THREE.PointsMaterial({
-      color: 0xc8b890, size: 0.12, transparent: true, opacity: 0.35,
-      blending: THREE.AdditiveBlending, depthWrite: false,
+      color: 0x6a5028, size: 0.15, transparent: true, opacity: 0.4,
+      depthWrite: false,
     })));
 
     // Lighting
-    scene.add(new THREE.AmbientLight(0x100c08, 2));
-    const keyLight = new THREE.PointLight(0xc8a96e, 4, 50); keyLight.position.set(15, 10, 15); scene.add(keyLight);
-    const fillLight = new THREE.PointLight(0x3020a0, 1.5, 40); fillLight.position.set(-10, -8, -10); scene.add(fillLight);
+    scene.add(new THREE.AmbientLight(0xf0e8d8, 3));
+    const keyLight = new THREE.PointLight(0xc8a96e, 3, 50); keyLight.position.set(15, 10, 15); scene.add(keyLight);
+    const fillLight = new THREE.PointLight(0x8090b0, 1, 40); fillLight.position.set(-10, -8, -10); scene.add(fillLight);
 
     let mx = 0, my = 0;
     const onMouseMove = (e: MouseEvent) => {
