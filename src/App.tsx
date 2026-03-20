@@ -17,7 +17,7 @@ function App() {
 
     const themeColors = (isDark: boolean) => ({
       particleColor: isDark ? 0xB8860B : 0x0D1520,
-      particleSize: isDark ? 0.08 : 0.16,
+      particleSize: 0.08,
       particleOpacity: isDark ? 0.7 : 0.95,
       globeColor: isDark ? 0x2C3E6B : 0x0D1520,
       ringColor1: isDark ? 0x3D5280 : 0x1A2744,
