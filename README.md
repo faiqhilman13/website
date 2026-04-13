@@ -62,6 +62,28 @@ npm run build
 
 The built files will be in the `dist/` directory.
 
+## Analytics Setup
+
+This site supports optional analytics through environment variables.
+
+1. Copy `.env.example` to `.env.local`
+2. Fill in any analytics IDs you want to enable
+3. Rebuild and redeploy
+
+Supported variables:
+
+- `VITE_GA_MEASUREMENT_ID`: Google Analytics 4 measurement ID, for example `G-XXXXXXXXXX`
+- `VITE_CLOUDFLARE_BEACON_TOKEN`: Cloudflare Web Analytics beacon token
+
+## Google Search Console
+
+Search Console ownership verification still needs to be done at the Google/domain level.
+Recommended methods:
+
+- DNS TXT verification on your domain
+- Google Analytics ownership if GA4 is set up on the same Google account
+- HTML meta tag or verification file once Google gives you the exact token
+
 ## Project Structure
 
 ```
