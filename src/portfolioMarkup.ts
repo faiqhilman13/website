@@ -20,7 +20,8 @@ import {
   spiralGalaxy,
 } from './chartArt';
 
-const newTab = '<span class="vh"> (opens in a new tab)</span>';
+// External links open in a new tab; screen readers hear that from one shared note.
+const external = 'target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-note"';
 
 /* ---------- Ports of call (experience) ---------- */
 
@@ -198,7 +199,7 @@ const findBlocks = finds
           ${constellationGlyph(i)}
           <h3 id="find-${i}-title" class="find-title">${
             find.href
-              ? `<a href="${find.href}" target="_blank" rel="noopener noreferrer">${find.title}${icons.external}${newTab}</a>`
+              ? `<a href="${find.href}" ${external}>${find.title}${icons.external}</a>`
               : find.title
           }</h3>
           <p class="find-figure"><span class="figure">${find.figure}</span> ${find.figureNote}</p>
@@ -339,7 +340,7 @@ export const portfolioMarkup = `<div class="content">
 
   <nav id="nav" class="running-head" aria-label="Primary">
     <a href="#" class="nav-logo">
-      <img src="/symbol.png" alt="" width="36" height="36">
+      <img src="/symbol-192.webp" alt="" width="36" height="36">
       <span>Faiq Hilman</span>
     </a>
     <ul class="nav-links">
@@ -362,16 +363,15 @@ export const portfolioMarkup = `<div class="content">
       <div class="chart-sheet">
         <div class="hero-art" aria-hidden="true">${heroFallback()}</div>
         <div class="hero-copy">
-          <h1 id="hero-title" class="hero-title">Engineering the<br><em>Future,</em><br>Grounded in Faith</h1>
-          <p class="hero-signature"><span>Faiq Hilman</span>${fleuron}<span>AI Systems Architect</span></p>
+          <h1 id="hero-title" class="hero-heading"><span class="hero-title">Engineering the<br><em>Future,</em><br>Grounded in Faith</span><span class="hero-signature"><span>Faiq Hilman</span>${fleuron}<span>AI Systems Architect</span></span></h1>
           <p class="hero-motto">The dots only connect looking backwards. Move forward anyway.</p>
           <p class="hero-brief">AI systems architect delivering production AI, ERP automation and LLM systems. Led applications on a RM 10M+ platform serving 30,000+ users and delivered an 880-project Odoo migration with governed agentic workflows.</p>
           <a href="#projects" class="plate-link"><span class="plate-link-text">Explore selected work</span>${icons.arrow}</a>
           <ul class="bearings" aria-label="Contact">
             <li><a href="mailto:faiqhilman97@gmail.com">${icons.mail}Email</a></li>
-            <li><a href="https://faiqhilman.my" target="_blank" rel="noopener noreferrer">${icons.globe}Website${newTab}</a></li>
-            <li><a href="https://linkedin.com/in/faiqhilman" target="_blank" rel="noopener noreferrer">${icons.linkedin}LinkedIn${newTab}</a></li>
-            <li><a href="https://github.com/faiqhilman13" target="_blank" rel="noopener noreferrer">${icons.github}GitHub${newTab}</a></li>
+            <li><a href="https://faiqhilman.my" ${external}>${icons.globe}Website</a></li>
+            <li><a href="https://linkedin.com/in/faiqhilman" ${external}>${icons.linkedin}LinkedIn</a></li>
+            <li><a href="https://github.com/faiqhilman13" ${external}>${icons.github}GitHub</a></li>
             <li><a href="tel:+60192713447">${icons.phone}Phone</a></li>
           </ul>
         </div>
@@ -403,7 +403,7 @@ export const portfolioMarkup = `<div class="content">
         </div>
         <aside class="plate" aria-labelledby="plate-title">
           <span class="rivet" aria-hidden="true"></span><span class="rivet" aria-hidden="true"></span><span class="rivet" aria-hidden="true"></span><span class="rivet" aria-hidden="true"></span>
-          <img src="/symbol.png" alt="" class="plate-seal" width="64" height="64">
+          <img src="/symbol-192.webp" alt="" class="plate-seal" width="64" height="64" loading="lazy" decoding="async">
           <h3 id="plate-title" class="plate-title">Particulars</h3>
           <dl class="particulars">
             <div><dt>Platform value</dt><dd>RM 10M+</dd></div>
@@ -474,8 +474,8 @@ export const portfolioMarkup = `<div class="content">
           <p class="contact-subtitle">I'm always interested in hearing about new opportunities, challenging projects, or just connecting over shared interests in AI.</p>
           <div class="contact-links">
             <a href="mailto:faiqhilman97@gmail.com" class="plate-link contact-link primary">${icons.mail}<span class="plate-link-text">Get in Touch</span></a>
-            <a href="https://linkedin.com/in/faiqhilman" target="_blank" rel="noopener noreferrer" class="rope-link contact-link secondary">${icons.linkedin}LinkedIn${newTab}</a>
-            <a href="https://github.com/faiqhilman13" target="_blank" rel="noopener noreferrer" class="rope-link contact-link secondary">${icons.github}GitHub${newTab}</a>
+            <a href="https://linkedin.com/in/faiqhilman" ${external} class="rope-link contact-link secondary">${icons.linkedin}LinkedIn</a>
+            <a href="https://github.com/faiqhilman13" ${external} class="rope-link contact-link secondary">${icons.github}GitHub</a>
           </div>
         </div>
         <div class="rose-wrap">${compassRose()}</div>
@@ -486,4 +486,5 @@ export const portfolioMarkup = `<div class="content">
   <footer class="colophon">
     <p class="footer-text">Designed &amp; Built by <span>Faiq Hilman</span> · <span>2026</span></p>
   </footer>
+  <span id="new-tab-note" hidden>Opens in a new tab</span>
 </div>`;
