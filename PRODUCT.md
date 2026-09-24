@@ -6,11 +6,11 @@ brand
 
 ## Users
 
-Recruiters, engineering managers, and founders evaluating a Forward Deployed AI Engineer for high-stakes production AI work. They scan quickly, looking for evidence of shipped systems, scale, and technical depth. The portfolio must communicate competence and personality in one scroll.
+Recruiters, engineering managers, and founders evaluating an AI systems architect and engineer for high-stakes production AI work. They scan quickly, looking for evidence of shipped systems, scale, and technical depth. The portfolio must communicate competence and personality in one scroll.
 
 ## Product Purpose
 
-Personal portfolio for Faiq Hilman, an AI engineer who ships production GenAI systems to enterprise customers. The site exists to prove, not claim: every section shows what was built, at what scale, and with what stack. Success is a recruiter or founder reaching out after a 60-second scroll.
+Personal portfolio for Faiq Hilman, an AI systems architect who ships production AI, ERP automation, and LLM systems for enterprises. The site exists to prove, not claim: every section shows what was built, at what scale, and with what stack. Success is a recruiter or founder reaching out after a 60-second scroll.
 
 ## Brand Personality
 
