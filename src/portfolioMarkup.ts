@@ -48,16 +48,14 @@ const log: LogEntry[] = [
     remarks:
       'Driving AI systems architecture and delivery at CitaGlobal Telco within a 20+ subsidiary group, working with the CEO, General Manager, Finance, IT, Procurement and HR.',
     highlights: [
-      'Led an agentic, API-assisted migration of 880 PO-backed telecom projects into Odoo production in 4 weeks, avoiding a five-figure vendor manpower charge',
-      'Governed the rollout with canary deployment, deterministic rollback, read-back verification and change records, then published a live executive dashboard over an eight-figure order book',
-      'Delivered HR-accepted FY27 KPI scorecards for 40+ employees in 2 days instead of the weeks expected, building and QA-checking them with AI agents and setting departmental weightings with the CEO',
-      'Turned a review of 111 IT tickets and 26 documents into an evidence-ranked portfolio of 4 pilots, surfacing security and end-of-life infrastructure risks',
-      'Authored an AI governance package covering model access, pricing, SLAs and acceptable use, with an employee guideline and a clause-level gap analysis of the procurement SOP; it advanced to Group HR and Strategy for review',
+      'Built a natural-language AI agent that executes Odoo ERP operations, saving five figures in vendor costs',
+      'Migrated an eight-figure portfolio of 880 telecom projects into Odoo production in 4 weeks with canary deployment and deterministic rollback, then built live dashboards for management',
+      'Authored the AI policy, covering model access, pricing, SLAs and acceptable use, and established the AI use-case register; the policy advanced to Group HR and Strategy for review',
     ],
     figures: [
       ['Projects migrated', '880', 'in 4 wks'],
-      ['KPI scorecards', '40+', 'in 2 days'],
-      ['Pilots ranked', '4', 'from 111 tickets'],
+      ['Portfolio value', '8 figures'],
+      ['Vendor costs saved', '5 figures'],
     ],
   },
   {
