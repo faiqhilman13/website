@@ -411,7 +411,7 @@ export function portPlanet(kind: PortPlanet): string {
 }
 
 export function orbitPlanet(index: number): string {
-  const start = [20, 140, 250, 60, 310][index] ?? 0;
+  const start = [20, 140, 250, 60, 310, 200][index] ?? 0;
   let far = '';
   let body = '';
   let near = '';
@@ -427,8 +427,12 @@ export function orbitPlanet(index: number): string {
     body = engravedBody({ r: 22, seed: 0xa104, step: 3.4, shade: 0.6, bands: [-0.3, 0.3] });
     far = `<g transform="rotate(16)">${rings([42, 35], 0.24, false)}</g>`;
     near = `<g transform="rotate(16)">${rings([42, 35], 0.24, true)}</g>`;
-  } else {
+  } else if (index === 4) {
     body = engravedBody({ r: 22, seed: 0xa105, step: 3.4, shade: 0.74, craters: 4, stipple: 40 });
+  } else {
+    body = engravedBody({ r: 23, seed: 0xa106, step: 3.4, shade: 0.55, bands: [-0.55, -0.18, 0.18, 0.55], meridians: [0.6] });
+    far = `<g transform="rotate(-58)"><path class="pm-holo pm-holo-back" d="${ringHalf(38, 8, false)}"/></g>`;
+    near = `<g transform="rotate(-58)"><path class="pm-holo" d="${ringHalf(38, 8, true)}"/></g>`;
   }
   return `<svg class="orbit-glyph" viewBox="-60 -60 120 120" aria-hidden="true" focusable="false"><circle class="op-orbit" r="50"/><g class="op-moon" style="--start:${start}deg"><circle cx="50" cy="0" r="4.2"/></g>${far}${body}${near}</svg>`;
 }

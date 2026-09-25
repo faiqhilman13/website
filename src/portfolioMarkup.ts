@@ -48,14 +48,16 @@ const log: LogEntry[] = [
     remarks:
       'Driving AI systems architecture and delivery at CitaGlobal Telco within a 20+ subsidiary group, working with the CEO, General Manager, Finance, IT, Procurement and HR.',
     highlights: [
-      'Built a natural-language AI agent that executes Odoo ERP operations, saving five figures in vendor costs',
-      'Migrated an eight-figure portfolio of 880 telecom projects into Odoo production in 4 weeks with canary deployment and deterministic rollback, then built live dashboards for management',
-      'Authored the AI policy, covering model access, pricing, SLAs and acceptable use, and established the AI use-case register; the policy advanced to Group HR and Strategy for review',
+      'Built a natural-language AI agent for Odoo ERP and used it to migrate an eight-figure portfolio of 880 telecom projects into production in 3 days, saving five figures in vendor costs',
+      'Cleaned the Excel source of truth, released to production in logged stages with rollback, and rebuilt the management dashboards in Odoo',
+      'Building the group-wide HR platform with the HR team, approved for rollout to 500+ staff, covering leave, claims, appraisals and AI-assisted recruitment that ranks CVs with evidence-linked scoring',
+      'Authored the group AI policy, covering model access, pricing, SLAs and acceptable use, approved group-wide, and set up the AI use-case register',
     ],
     figures: [
-      ['Projects migrated', '880', 'in 4 wks'],
+      ['Projects migrated', '880', 'in 3 days'],
       ['Portfolio value', '8 figures'],
       ['Vendor costs saved', '5 figures'],
+      ['HR platform', '500+', 'staff, group-wide'],
     ],
   },
   {
@@ -86,11 +88,14 @@ const log: LogEntry[] = [
     to: 'Present',
     underway: true,
     remarks:
-      "Produced broadcast-quality generative AI video sequences for RTM's nationally televised DIA programme and the NeuroIman pilot.",
+      "Produced broadcast-quality generative AI sequences that aired in Episode 3 of RTM's nationally televised DIA programme. Now storyboarding the NeuroIman pilot episodes for producer review.",
     highlights: [
-      'Worked directly with RTM producers, building repeatable Seedance, Kling and ChatGPT workflows that turn briefs into production-ready sequences under broadcast deadlines',
+      'Worked directly with RTM producers, building repeatable Seedance, Kling and ChatGPT workflows that generate each sequence from a brief in a few hours',
     ],
-    figures: [['Programmes', '2', 'DIA · NeuroIman']],
+    figures: [
+      ['Programmes', '2', 'DIA · NeuroIman'],
+      ['Aired nationally', 'Ep 3', 'DIA'],
+    ],
   },
   {
     vessel: 'EY',
@@ -99,13 +104,15 @@ const log: LogEntry[] = [
     from: 'Aug 2024',
     to: 'Mar 2026',
     remarks:
-      'Led 3 production AI applications on a RM 10M+ enterprise platform serving 30,000+ users at a top-5 Bursa Malaysia-listed company, working across React/TypeScript, .NET/C#, Python/FastAPI and PostgreSQL in a 100K+ LOC codebase.',
+      'Led 3 production AI applications on a RM 10M+ enterprise platform serving 30,000+ users at a top-5 Bursa Malaysia-listed company, personally building 70–90% of each and ranking top-3 contributor in a 100K+ LOC codebase across React/TypeScript, .NET/C#, Python/FastAPI and PostgreSQL.',
     highlights: [
       'Shipped a RM 2M+ talent-evaluation system to production 6 weeks early, going from 60% complete to deployed in 3 days, with LLM and ML scoring across 2,000+ candidates and 5 competency frameworks',
-      'Unlocked a RM 400K milestone payment by recovering an executive demo under live review, redesigning the data schema and evaluating 50+ candidates against 2 job descriptions in 2 hours',
-      'Cut new-agent deployment from weeks to days by architecting a reusable multi-agent framework (factory and strategy patterns) for OCR, image analysis, compliance validation and comparison workflows',
+      'Unlocked a RM 400K milestone payment by rescuing a live executive demo, redesigning the data schema and evaluating 50+ candidates against 2 job descriptions in 2 hours; the client credited this with saving the project',
+      'Delivered a platform-wide UI revamp in 9 days against a 5-week estimate and tripled file upload speeds through pipeline and API optimisation',
+      'Cut new-agent deployment from weeks to days with a reusable multi-agent framework (factory and strategy patterns) powering a RAG chatbot over 40+ knowledge sources with OCR, image, compliance and comparison agents',
       "Built an AI assistant for Malaysia's electricity-generation sector, unifying 19 fragmented data sources behind natural-language queries",
-      'Trained 10+ engineers on Claude Code, Codex, Cursor and agentic development workflows',
+      'Shipped a React Native iOS/Android app with streaming multi-agent chat, and owned CI/CD (AWS CodePipeline) and releases across 3 production systems with zero missed deadlines',
+      'Drove agentic coding adoption, training 10+ engineers on Claude Code, Codex, Cursor and AI-assisted workflows',
     ],
     figures: [
       ['Platform', 'RM 10M+'],
@@ -211,24 +218,28 @@ const findBlocks = finds
 
 const holds: Array<[string, string[]]> = [
   [
-    'AI / LLM',
-    ['Multi-agent orchestration', 'RAG', 'pgvector', 'BM25', 'Reranking', 'LLM-as-judge', 'Guardrails', 'QLoRA', 'MCP'],
+    'AI &amp; LLM',
+    ['Multi-agent orchestration', 'RAG', 'pgvector', 'BM25', 'Reranking', 'LLM-as-judge', 'Guardrails', 'Prompt engineering', 'MCP', 'QLoRA fine-tuning', 'Local LLMs'],
   ],
   [
-    'Engineering &amp; Enterprise Systems',
-    ['Python', 'FastAPI', 'React', 'TypeScript', '.NET / C#', 'Node.js', 'REST APIs', 'Odoo 19 (JSON-2 API)', 'AutoCount', 'Microsoft 365', 'SharePoint', 'Power Automate', 'Microsoft Graph', 'ERP integration'],
+    'Machine Learning &amp; Data',
+    ['PyTorch', 'Hugging Face Transformers', 'PEFT', 'TRL', 'bitsandbytes', 'scikit-learn', 'XGBoost', 'pandas', 'NumPy', 'Embeddings', 'ETL', 'Statistics'],
   ],
   [
-    'Data / ML',
-    ['ETL', 'Embeddings', 'scikit-learn', 'XGBoost', 'Hugging Face Transformers', 'PEFT', 'bitsandbytes', 'TRL', 'Evaluation design'],
+    'Software Engineering',
+    ['Python', 'TypeScript', 'JavaScript', 'React', 'React Native', 'HTML / CSS', 'Node.js', 'FastAPI', '.NET / C#', 'SQL', 'REST APIs', 'SSE streaming'],
   ],
   [
-    'Infrastructure',
-    ['PostgreSQL', 'SQLite', 'Redis', 'Celery', 'MongoDB', 'Docker', 'CI/CD', 'AWS Bedrock', 'AWS S3', 'AWS EC2', 'AWS RDS', 'Hetzner', 'Caddy'],
+    'Cloud &amp; Infrastructure',
+    ['AWS Bedrock', 'AWS CodePipeline', 'AWS EC2', 'AWS S3', 'AWS RDS', 'Azure', 'Docker', 'CI/CD', 'Hetzner VPS', 'Caddy', 'PostgreSQL', 'Redis', 'Celery', 'MongoDB', 'SQLite'],
   ],
   [
-    'Developer Tooling',
-    ['Claude Code', 'Codex', 'Cursor', 'Agentic development workflows', 'Test-driven refactoring'],
+    'Enterprise Systems',
+    ['Odoo 19 (JSON-2 API)', 'ERP integration', 'Microsoft 365', 'SharePoint', 'Power Automate', 'Microsoft Graph'],
+  ],
+  [
+    'Agentic Development',
+    ['Claude Code', 'Codex', 'Cursor', 'Agentic coding workflows', 'Test-driven refactoring', 'Team training'],
   ],
 ];
 
@@ -363,7 +374,7 @@ export const portfolioMarkup = `<div class="content">
         <div class="hero-copy">
           <h1 id="hero-title" class="hero-heading"><span class="hero-title">Engineering the<br><em>Future,</em><br>Grounded in Faith</span><span class="hero-signature"><span>Faiq Hilman</span>${fleuron}<span>AI Systems Architect</span></span></h1>
           <p class="hero-motto">The dots only connect looking backwards. Move forward anyway.</p>
-          <p class="hero-brief">AI systems architect delivering production AI, ERP automation and LLM systems. Led applications on a RM 10M+ platform serving 30,000+ users and delivered an 880-project Odoo migration with governed agentic workflows.</p>
+          <p class="hero-brief">AI systems architect delivering production AI, ERP automation and LLM systems. Led applications on a RM 10M+ platform serving 30,000+ users and built an AI agent that migrated 880 projects into Odoo in 3 days.</p>
           <a href="#projects" class="plate-link"><span class="plate-link-text">Explore selected work</span>${icons.arrow}</a>
           <ul class="bearings" aria-label="Contact">
             <li><a href="mailto:faiqhilman97@gmail.com">${icons.mail}Email</a></li>
@@ -395,9 +406,9 @@ export const portfolioMarkup = `<div class="content">
       <div class="sheet-inner about">
         <h2 id="about-title" class="sheet-title">Building AI That<br><em>Actually Ships</em></h2>
         <div class="about-copy">
-          <p>I'm an <strong>AI systems architect</strong> and engineer delivering production AI, ERP automation and LLM systems across consulting and enterprise environments. I've led applications on a <strong>RM 10M+ platform</strong> serving <strong>30,000+ users</strong>, shipped a <strong>RM 2M+</strong> talent-evaluation system six weeks early, and delivered an <strong>880-project</strong> Odoo production migration using governed agentic workflows.</p>
-          <p>I work full-stack across Python/FastAPI, React/TypeScript, .NET/C#, PostgreSQL and APIs, and specialise in <strong>RAG</strong>, <strong>multi-agent orchestration</strong>, and <strong>LLM evaluation</strong>: translating complex AI capabilities into deployed business systems.</p>
-          <p>When I'm not building, I'm teaching. I've trained <strong>10+ engineers</strong> on Claude Code, Codex, Cursor and agentic development workflows, and designed AI training for <strong>90+ AI champions</strong> across 8 countries.</p>
+          <p>I'm an <strong>AI systems architect</strong> and engineer delivering production AI, ERP automation and LLM systems across consulting and enterprise environments. I've led applications on a <strong>RM 10M+ platform</strong> serving <strong>30,000+ users</strong>, shipped a <strong>RM 2M+</strong> talent-evaluation system six weeks early, and built an AI agent that migrated <strong>880 projects</strong> into Odoo production in three days.</p>
+          <p>I work full-stack across Python/FastAPI, React/TypeScript, .NET/C# and PostgreSQL, deploy on AWS, Azure and my own VPS, and specialise in <strong>RAG</strong>, <strong>multi-agent orchestration</strong>, and <strong>LLM evaluation</strong>: translating complex AI capabilities into deployed business systems.</p>
+          <p>When I'm not building, I'm teaching. An early adopter of agentic coding, I've trained <strong>10+ engineers</strong> on Claude Code, Codex and Cursor, and designed AI training for <strong>90+ AI champions</strong> across 8 countries.</p>
         </div>
         <aside class="plate" aria-labelledby="plate-title">
           <span class="rivet" aria-hidden="true"></span><span class="rivet" aria-hidden="true"></span><span class="rivet" aria-hidden="true"></span><span class="rivet" aria-hidden="true"></span>
@@ -420,7 +431,7 @@ export const portfolioMarkup = `<div class="content">
         <h2 id="experience-title" class="sheet-title">Where I've <em>Built</em></h2>
         <ol class="ports">${portEntries}
         </ol>
-        <p class="ports-earlier">${fleuron}<span>Earlier: <span class="ports-earlier-name">PricewaterhouseCoopers (PwC)</span>, <em>Assurance Associate</em>, <span class="ports-earlier-date">Mar 2020 to Jul 2020</span>, in financial audit and analytics.</span></p>
+        <p class="ports-earlier">${fleuron}<span>Earlier: <span class="ports-earlier-name">PricewaterhouseCoopers (PwC)</span>, <em>Assurance Associate</em>, <span class="ports-earlier-date">Mar 2020 to Jul 2020</span>, where trend analytics on financial statements led to the recovery of US$25,000+ in variances.</span></p>
       </div>
     </section>
 
