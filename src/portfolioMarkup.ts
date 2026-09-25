@@ -108,10 +108,9 @@ const log: LogEntry[] = [
     highlights: [
       'Shipped a RM 2M+ talent-evaluation system to production 6 weeks early, going from 60% complete to deployed in 3 days, with LLM and ML scoring across 2,000+ candidates and 5 competency frameworks',
       'Unlocked a RM 400K milestone payment by rescuing a live executive demo, redesigning the data schema and evaluating 50+ candidates against 2 job descriptions in 2 hours; the client credited this with saving the project',
-      'Delivered a platform-wide UI revamp in 9 days against a 5-week estimate and tripled file upload speeds through pipeline and API optimisation',
       'Cut new-agent deployment from weeks to days with a reusable multi-agent framework (factory and strategy patterns) powering a RAG chatbot over 40+ knowledge sources with OCR, image, compliance and comparison agents',
       "Built an AI assistant for Malaysia's electricity-generation sector, unifying 19 fragmented data sources behind natural-language queries",
-      'Shipped a React Native iOS/Android app with streaming multi-agent chat, and owned CI/CD (AWS CodePipeline) and releases across 3 production systems with zero missed deadlines',
+      'Owned CI/CD (AWS CodePipeline) and releases across 3 production systems with zero missed deadlines',
       'Drove agentic coding adoption, training 10+ engineers on Claude Code, Codex, Cursor and AI-assisted workflows',
     ],
     figures: [
